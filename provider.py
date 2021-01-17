@@ -23,7 +23,7 @@ class Provider():
         now = datetime.datetime.now()
         stamp = now.strftime("%m/%d/%Y,%H:%M,")
         with open("log.txt", "a") as file:
-            file.write("\n" + stamp + message)
+            file.write(stamp + message + "\n")
             file.close()
 
     def get_data(self):

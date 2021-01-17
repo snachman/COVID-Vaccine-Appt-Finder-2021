@@ -26,22 +26,26 @@ class Provider():
             file.close()
 
     def get_data(self):
-        r = requests.get(self.url)
+        ua = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
+        headers = {"User-Agent": ua}
+        r = requests.get(self.url, headers=headers)
         return r
 
-    def check_for_claimed(self, body):
-        claimed_string = self.test_phrase
-        if claimed_string in body:
-            return False
-        else:
+    def check_for_claimed_phrase(self, body):
+        if self.test_phrase in body:
             return True
+        else:
+            return False
 
     def act(self):
         data = self.get_data()
-        if self.check_for_claimed(data.text):
-            results = "VACCINES AVAILABLE"
-            self.log(results)
-            self.alert(results + "\n" + data.url)
+        if data.status_code == 200:
+            if self.check_for_claimed_phrase(data.text):
+                results = "No appts"
+                self.log(results)
+                self.alert(results + "\n" + data.url)
+            else:
+                results = "APPTS AVAILABLE"
+                self.log(results)
         else:
-            results = "All appts claimed"
-            self.log(results)
+            self.log(str(data.status_code))

@@ -47,7 +47,7 @@ class Provider():
                 results = "No appts"
                 self.log(results)
             else:
-                results = "APPTS AVAILABLE"
+                results = "CHECK SITE"
                 self.alert(results + "\n" + data.url)
                 self.log(results)
         else:

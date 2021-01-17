@@ -23,7 +23,11 @@ class Provider():
         now = datetime.datetime.now()
         stamp = now.strftime("%m/%d/%Y,%H:%M,")
         with open("log.txt", "a") as file:
-            file.write(stamp + message + "\n")
+            line = stamp + message + "\n"
+            file.write(line)
+            curl = """curl -X POST -H 'Content-type: application/json' --data '{"text":"%s"}' https://hooks.slack.com/services/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""" % (
+                line)
+            os.popen(curl)
             file.close()
 
     def get_data(self):

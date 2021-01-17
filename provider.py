@@ -44,10 +44,10 @@ class Provider():
         if data.status_code == 200:
             if self.check_for_claimed_phrase(data.text):
                 results = "No appts"
-                self.log(results)
+                self.log(self.get_org_name() + "," + results)
             else:
                 results = "CHECK SITE"
                 self.alert(results + "\n" + data.url)
-                self.log(results)
+                self.log(self.get_org_name() + "," + results)
         else:
             self.log(str(data.status_code))

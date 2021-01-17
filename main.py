@@ -6,3 +6,4 @@ if __name__ == '__main__':
     stagnes.act()
     umms = Provider("UMMS", "Please check back here Monday, January 18 for more details", "https://www.umms.org/coronavirus/covid-vaccine/get-vaccine")
     umms.act()
+    # test

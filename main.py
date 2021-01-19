@@ -20,6 +20,6 @@ if __name__ == '__main__':
     calvert = Provider("Calvert Co.", "The pre-registration vaccine portal will open at 10 a.m. on Tuesday, Jan. 19, 2021", "https://www.calvertcountymd.gov/Vaccine")
 #    calvert.act()
     fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
-    fred.act()
+#    fred.act()
     time.sleep(3)
     utils.log("End vax search")

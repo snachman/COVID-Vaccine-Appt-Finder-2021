@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # giant = Provider("Giant Foods", "The following Giant Food locations will provide vaccinations to those who are eligible. Continue to check this site. More information will be provided as it becomes available", "https://coronavirus.maryland.gov/pages/maryland-retail-vaccination-sites")
     # giant.act()
     calvert = Provider("Calvert Co.", "The pre-registration vaccine portal will open at 10 a.m. on Tuesday, Jan. 19, 2021", "https://www.calvertcountymd.gov/Vaccine")
-    calvert.act()
+#    calvert.act()
     fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
     fred.act()
     time.sleep(3)

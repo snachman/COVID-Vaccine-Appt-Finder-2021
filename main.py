@@ -1,3 +1,5 @@
+import time
+
 import utils
 from provider import Provider
 
@@ -14,4 +16,5 @@ if __name__ == '__main__':
     gbmc.act()
     garrett = Provider("Garrett Co.", "THERE ARE NO APPOINTMENTS AVAILABLE AT THIS TIME", "https://health.maryland.gov/allegany/Pages/COVIDVaccination.aspx")
     garrett.act()
+    time.sleep(3)
     utils.log("End vax search")

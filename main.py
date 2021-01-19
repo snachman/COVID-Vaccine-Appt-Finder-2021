@@ -11,3 +11,5 @@ if __name__ == '__main__':
     umms.act()
     gbmc = Provider("GBMC", "All available slots filled. Check back soon!", "https://www.gbmc.org/covid-vaccine")
     gbmc.act()
+    garrett = Provider("Garrett Co.", "THERE ARE NO APPOINTMENTS AVAILABLE AT THIS TIME", "https://health.maryland.gov/allegany/Pages/COVIDVaccination.aspx")
+    garrett.act()

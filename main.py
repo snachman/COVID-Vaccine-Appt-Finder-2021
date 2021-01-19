@@ -8,7 +8,7 @@ if __name__ == '__main__':
     stagnes = Provider("St. Agnes", "Due to overwhelming demand Ascension Saint Agnes has no vaccination appointments available at this time", "https://healthcare.ascension.org/COVID-19/vaccinations")
     stagnes.act()
     umms = Provider("UMMS", "Please check back here Monday, January 18 for more details", "https://www.umms.org/coronavirus/covid-vaccine/get-vaccine")
-    umms.act()
+    # umms.act()
     gbmc = Provider("GBMC", "All available slots filled. Check back soon!", "https://www.gbmc.org/covid-vaccine")
     gbmc.act()
     garrett = Provider("Garrett Co.", "THERE ARE NO APPOINTMENTS AVAILABLE AT THIS TIME", "https://health.maryland.gov/allegany/Pages/COVIDVaccination.aspx")

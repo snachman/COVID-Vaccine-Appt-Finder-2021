@@ -39,3 +39,10 @@ class Provider():
                 utils.log(self.get_org_name() + "," + results)
         else:
             utils.log(str(data.status_code))
+
+
+    def frederick_act(self):
+        data = self.get_data()
+        from bs4 import BeautifulSoup as bs
+        soup = bs(data, features="html.parser")
+        print(soup.prettify())

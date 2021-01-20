@@ -27,7 +27,7 @@ class Provider():
         else:
             return False
 
-    def act(self):
+    def act(self, debug=False):
         data = self.get_data()
         if data.status_code == 200:
             if self.check_for_claimed_phrase(data.text):
@@ -35,7 +35,7 @@ class Provider():
                 utils.log(self.get_org_name() + "," + results)
             else:
                 results = "CHECK SITE"
-                utils.alert(results + "\n" + data.url)
+                utils.alert(results + "\n" + data.url, debug)
                 utils.log(self.get_org_name() + "," + results)
         else:
             utils.log(str(data.status_code))

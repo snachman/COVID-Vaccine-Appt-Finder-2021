@@ -13,6 +13,9 @@ def known_working():
     gbmc.act()
     stagnes.act()
     holycross.act()
+    time.sleep(3)
+    utils.log("End vax search")
+
 
 
 
@@ -29,5 +32,3 @@ if __name__ == '__main__':
     # umms.act()
     # giant.act()
     # fred.frederick_act()
-    time.sleep(3)
-    utils.log("End vax search")

@@ -43,6 +43,6 @@ class Provider():
 
     def frederick_act(self):
         data = self.get_data()
-        from bs4 import BeautifulSoup as bs
-        soup = bs(data, features="html.parser")
-        print(soup.prettify())
+        if data.status_code == 200:
+            print(data.text.count("full"))
+

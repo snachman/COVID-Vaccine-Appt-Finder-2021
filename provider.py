@@ -44,5 +44,5 @@ class Provider():
     def frederick_act(self):
         data = self.get_data()
         if data.status_code == 200:
-            print(data.text.count("full"))
+            print(data.text.count("Full"))
 

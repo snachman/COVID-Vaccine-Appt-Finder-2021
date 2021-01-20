@@ -25,6 +25,9 @@ def obsolete():
     pass
 
 
+def development():
+    pass
+
 
 if __name__ == '__main__':
     fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")

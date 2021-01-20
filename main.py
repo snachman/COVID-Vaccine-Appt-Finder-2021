@@ -26,15 +26,9 @@ def obsolete():
 
 
 def development():
-    pass
+    fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
+    fred.frederick_act()
 
 
 if __name__ == '__main__':
-    fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
-
-
-    # calvert.act(debug=True)
-    # garrett.act(debug=True)
-    # umms.act()
-    # giant.act()
-    # fred.frederick_act()
+    known_working()

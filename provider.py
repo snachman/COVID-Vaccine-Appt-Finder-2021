@@ -41,8 +41,15 @@ class Provider():
             utils.log(str(data.status_code))
 
 
-    def frederick_act(self):
+    def frederick_act(self, debug=False):
         data = self.get_data()
         if data.status_code == 200:
-            print(data.text.count("Full"))
+            number_of_Full = (data.text.count("Full"))
+            if number_of_Full != 7:
+                results = "CHECK SITE"
+                utils.alert(results + "\n" + data.url, debug)
+                utils.log(self.get_org_name() + "," + results)
+            else:
+                print("equal to 7")
+
 

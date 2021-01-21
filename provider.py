@@ -41,15 +41,30 @@ class Provider():
             utils.log(str(data.status_code))
 
 
-    def frederick_act(self, debug=False):
+    def frederick_act_full_appts(self, debug_flag=False):
         data = self.get_data()
         if data.status_code == 200:
             number_of_Full = (data.text.count("Full"))
             if number_of_Full != 7:
                 results = "CHECK SITE"
-                utils.alert(results + "\n" + data.url, debug)
+                utils.alert(results + "\n" + data.url, debug_flag)
                 utils.log(self.get_org_name() + "," + results)
             else:
                 print("equal to 7")
 
 
+    def adventist_act(self, debug_flag=False):
+        data = self.get_data()
+        if data.status_code == 200:
+            number_of_Alert_Me = (data.text.count("Alert Me"))
+            if number_of_Alert_Me != 3:
+                results = "CHECK SITE"
+                utils.alert(results + "\n" + data.url, debug_flag)
+                utils.log(self.get_org_name() + "," + results)
+            else:
+                results = "No appts"
+                utils.log(self.get_org_name() + "," + results)
+        else:
+            utils.log(str(data.status_code))
+
+        # https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/

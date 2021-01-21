@@ -2,10 +2,10 @@ import os
 import datetime
 
 
-def alert(message, debug):
-    if debug == True:
+def alert(message, debug_flag=False):
+    if debug_flag == True:
         destination = "https://hooks.slack.com/services/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" # logs channel
-    elif debug == False:
+    elif debug_flag == False:
         destination = "https://hooks.slack.com/services/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" # covid-vaccine-general channel
     curl = """curl -X POST -H 'Content-type: application/json' --data '{"text":"%s"}' %s""" % (
         message, destination)

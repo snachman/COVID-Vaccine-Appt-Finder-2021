@@ -15,7 +15,7 @@ def known_working():
     gbmc.act()
     stagnes.act()
     holycross.act()
-    adventist.adventist_act()
+    #adventist.adventist_act()
 
     time.sleep(3)
     utils.log("End vax search")

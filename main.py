@@ -14,7 +14,7 @@ def known_working():
 
     adventist.adventist_act()
     gbmc.act()
-    stagnes.act()
+    # stagnes.act()
     holycross.act()
 
     time.sleep(3)

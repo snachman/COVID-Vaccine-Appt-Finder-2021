@@ -26,7 +26,6 @@ def known_working():
 
 def obsolete():
     # garrett = Provider("Garrett Co.", "THERE ARE NO APPOINTMENTS AVAILABLE AT THIS TIME", "https://health.maryland.gov/allegany/Pages/COVIDVaccination.aspx")
-    # giant = Provider("Giant Foods", "The following Giant Food locations will provide vaccinations to those who are eligible. Continue to check this site. More information will be provided as it becomes available", "https://coronavirus.maryland.gov/pages/maryland-retail-vaccination-sites")
     pass
 
 

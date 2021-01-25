@@ -11,12 +11,15 @@ def known_working():
     gbmc = Provider("GBMC", "There are currently no available appointments", "https://www.gbmc.org/covid-vaccine")
     holycross = Provider("Holy Cross Hospital", "Holy Cross Health vaccine clinics are now full", "https://www.holycrosshealth.org/health-and-wellness/covid-19-vaccine/schedule-appointment")
     adventist = Provider("Adventist Health", "null", "https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/")
+    giant = Provider("Giant Foods Stores", "There are currently no COVID vaccine appointments available. Please check back tomorrow as we continue to add availability", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
 
+
+
+    giant.act()
     adventist.adventist_act()
     gbmc.act()
     # stagnes.act()
     holycross.act()
-
     time.sleep(3)
     utils.log("End vax search")
 
@@ -28,8 +31,7 @@ def obsolete():
 
 
 def development():
-    fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
-    fred.frederick_act_full_appts(debug_flag=True)
-
+    # fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
+    # fred.frederick_act_full_appts(debug_flag=True)
 if __name__ == '__main__':
-    known_working()
+    development()

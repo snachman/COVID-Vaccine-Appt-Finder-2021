@@ -7,7 +7,6 @@ from provider import Provider
 
 def known_working():
     utils.log("Begin vax search")
-    stagnes = Provider("St. Agnes", "Due to overwhelming demand Ascension Saint Agnes has no vaccination appointments available at this time", "https://healthcare.ascension.org/COVID-19/vaccinations")
     gbmc = Provider("GBMC", "There are currently no available appointments", "https://www.gbmc.org/covid-vaccine")
     holycross = Provider("Holy Cross Hospital", "Holy Cross Health vaccine clinics are now full", "https://www.holycrosshealth.org/health-and-wellness/covid-19-vaccine/schedule-appointment")
     adventist = Provider("Adventist Health", "null", "https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/")
@@ -18,7 +17,6 @@ def known_working():
     giant.act()
     adventist.adventist_act()
     gbmc.act()
-    # stagnes.act()
     holycross.act()
     time.sleep(3)
     utils.log("End vax search")
@@ -26,6 +24,8 @@ def known_working():
 
 def obsolete():
     # garrett = Provider("Garrett Co.", "THERE ARE NO APPOINTMENTS AVAILABLE AT THIS TIME", "https://health.maryland.gov/allegany/Pages/COVIDVaccination.aspx")
+    # stagnes = Provider("St. Agnes", "Due to overwhelming demand Ascension Saint Agnes has no vaccination appointments available at this time", "https://healthcare.ascension.org/COVID-19/vaccinations")
+
     pass
 
 

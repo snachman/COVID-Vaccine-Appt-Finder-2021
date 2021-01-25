@@ -55,8 +55,8 @@ class Provider():
 
     def adventist_act(self, debug_flag=False):
         data = self.get_data()
-        print(data.status_code)
-        print(data.text)
+        # print(data.status_code)
+        # print(data.text)
         if data.status_code == 200:
             number_of_Alert_Me = (data.text.count("Alert Me"))
             if number_of_Alert_Me != 4:

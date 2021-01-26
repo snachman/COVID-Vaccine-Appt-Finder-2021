@@ -14,7 +14,7 @@ def known_working():
 
 
 
-    # giant.act()
+    giant.act()
     adventist.adventist_act()
     gbmc.act()
     holycross.act()
@@ -32,7 +32,8 @@ def obsolete():
 def development():
     # fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
     # fred.frederick_act_full_appts(debug_flag=True)
-    pass
+    martins = Provider("Martins Grocery Store", "Vaccination Scheduler - COMING SOON!", "https://martinsfoods.com/pages/tgc-vaccines")
+    martins.act(debug=True)
 
 if __name__ == '__main__':
     known_working()

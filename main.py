@@ -14,7 +14,7 @@ def known_working():
 
 
 
-    giant.act()
+    # giant.act()
     adventist.adventist_act()
     gbmc.act()
     holycross.act()

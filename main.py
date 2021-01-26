@@ -16,7 +16,7 @@ def known_working():
 
     # giant.act()
     adventist.adventist_act()
-    gbmc.act()
+#    gbmc.act()
     holycross.act()
     time.sleep(3)
     utils.log("End vax search")

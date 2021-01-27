@@ -10,11 +10,12 @@ def known_working():
     gbmc = Provider("GBMC", "There are currently no available appointments", "https://www.gbmc.org/covid-vaccine")
     holycross = Provider("Holy Cross Hospital", "Holy Cross Health vaccine clinics are now full", "https://www.holycrosshealth.org/health-and-wellness/covid-19-vaccine/schedule-appointment")
     adventist = Provider("Adventist Health", "null", "https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/")
-    giant = Provider("Giant Foods Stores", "There are currently no COVID vaccine appointments available. Please check back tomorrow as we continue to add availability", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
+    giant = Provider("Giant Foods Stores", "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
 
 
 
-    # giant.act()
+
+    giant.act()
     adventist.adventist_act()
 #    gbmc.act()
     holycross.act()
@@ -32,8 +33,9 @@ def obsolete():
 def development():
     # fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
     # fred.frederick_act_full_appts(debug_flag=True)
-    martins = Provider("Martins Grocery Store", "Vaccination Scheduler - COMING SOON!", "https://martinsfoods.com/pages/tgc-vaccines")
-    martins.act(debug=True)
+    # martins = Provider("Martins Grocery Store", "Vaccination Scheduler - COMING SOON!", "https://martinsfoods.com/pages/tgc-vaccines")
+    # martins.act(debug=True)
+    pass
 
 if __name__ == '__main__':
     known_working()

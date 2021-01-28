@@ -20,7 +20,7 @@ def known_working():
 
 
     giant = Provider("Giant Foods Stores", "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
-    giant.act()
+#    giant.act()
 
     time.sleep(3)
     utils.log("End vax search")

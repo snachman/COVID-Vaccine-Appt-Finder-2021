@@ -7,18 +7,21 @@ from provider import Provider
 
 def known_working():
     utils.log("Begin vax search")
-    gbmc = Provider("GBMC", "There are currently no available appointments", "https://www.gbmc.org/covid-vaccine")
-    holycross = Provider("Holy Cross Hospital", "Holy Cross Health vaccine clinics are now full", "https://www.holycrosshealth.org/health-and-wellness/covid-19-vaccine/schedule-appointment")
+
+    holycross = Provider("Holy Cross Hospital", "Holy Cross Health will release the date of our next COVID-19 vaccine clinics on Thursday, Jan. 28 at 4 p.m", "https://www.holycrosshealth.org/health-and-wellness/covid-19-vaccine/schedule-appointment")
+    holycross.act()
+
+    gbmc = Provider("GBMC", "No appointments currently available", "https://www.gbmc.org/covid-vaccine")
+    gbmc.act()
+
+
     adventist = Provider("Adventist Health", "null", "https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/")
-    giant = Provider("Giant Foods Stores", "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
-
-
-
-
-#    giant.act()
     adventist.adventist_act()
-#    gbmc.act()
-#    holycross.act()
+
+
+    giant = Provider("Giant Foods Stores", "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
+    giant.act()
+
     time.sleep(3)
     utils.log("End vax search")
 
@@ -30,7 +33,7 @@ def obsolete():
     pass
 
 
-def development():
+def development(debug=True):
     # fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
     # fred.frederick_act_full_appts(debug_flag=True)
     # martins = Provider("Martins Grocery Store", "Vaccination Scheduler - COMING SOON!", "https://martinsfoods.com/pages/tgc-vaccines")

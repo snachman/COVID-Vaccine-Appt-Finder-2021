@@ -19,8 +19,6 @@ def known_working():
     adventist.adventist_act()
 
 
-    giant = Provider("Giant Foods Stores", "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
-#    giant.act()
 
 
     riteaid = Provider("Rite Aid", "You cannot schedule a vaccination appointment directly through Rite Aid at this time, however you can schedule through your state or local jurisdiction", "https://www.riteaid.com/Covid-19")
@@ -30,6 +28,12 @@ def known_working():
 
     mercy = Provider("Mercy Medical", "Vaccine appointments may not be scheduled online or via MyChart", "https://mdmercy.com/news-and-events/updates-for-patients-and-visitors/vaccine-faqs?sc_lang=en")
     mercy.act()
+
+
+    giant = Provider("Giant Foods Stores",
+                     "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you",
+                     "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
+    giant.act(debug=True)
 
 
     time.sleep(3)
@@ -44,7 +48,6 @@ def obsolete():
 
 def development(debug=True):
     pass
-
 
 if __name__ == '__main__':
     known_working()

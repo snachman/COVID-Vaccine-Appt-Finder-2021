@@ -27,6 +27,11 @@ def known_working():
     riteaid.act()
 
 
+
+    mercy = Provider("Mercy Medical", "Vaccine appointments may not be scheduled online or via MyChart", "https://mdmercy.com/news-and-events/updates-for-patients-and-visitors/vaccine-faqs?sc_lang=en")
+    mercy.act()
+
+
     time.sleep(3)
     utils.log("End vax search")
 
@@ -38,10 +43,6 @@ def obsolete():
 
 
 def development(debug=True):
-    # fred = Provider("Frederick Co.", "All Clinics currently full, check back on Tues. Jan. 19", "https://health.frederickcountymd.gov/629/COVID-19-Vaccine")
-    # fred.frederick_act_full_appts(debug_flag=True)
-    # martins = Provider("Martins Grocery Store", "Vaccination Scheduler - COMING SOON!", "https://martinsfoods.com/pages/tgc-vaccines")
-    # martins.act(debug=True)
     pass
 
 

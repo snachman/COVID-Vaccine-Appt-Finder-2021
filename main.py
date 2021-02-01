@@ -22,6 +22,11 @@ def known_working():
     giant = Provider("Giant Foods Stores", "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you", "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
 #    giant.act()
 
+
+    riteaid = Provider("Rite Aid", "You cannot schedule a vaccination appointment directly through Rite Aid at this time, however you can schedule through your state or local jurisdiction", "https://www.riteaid.com/Covid-19")
+    riteaid.act()
+
+
     time.sleep(3)
     utils.log("End vax search")
 
@@ -29,7 +34,6 @@ def known_working():
 def obsolete():
     # garrett = Provider("Garrett Co.", "THERE ARE NO APPOINTMENTS AVAILABLE AT THIS TIME", "https://health.maryland.gov/allegany/Pages/COVIDVaccination.aspx")
     # stagnes = Provider("St. Agnes", "Due to overwhelming demand Ascension Saint Agnes has no vaccination appointments available at this time", "https://healthcare.ascension.org/COVID-19/vaccinations")
-
     pass
 
 
@@ -39,6 +43,7 @@ def development(debug=True):
     # martins = Provider("Martins Grocery Store", "Vaccination Scheduler - COMING SOON!", "https://martinsfoods.com/pages/tgc-vaccines")
     # martins.act(debug=True)
     pass
+
 
 if __name__ == '__main__':
     known_working()

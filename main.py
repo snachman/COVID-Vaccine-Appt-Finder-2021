@@ -8,8 +8,8 @@ from provider import Provider
 def known_working():
     utils.log("Begin vax search")
 
-    holycross = Provider("Holy Cross Hospital", "Holy Cross Health will release the date of our next COVID-19 vaccine clinics on Thursday, Jan. 28 at 4 p.m", "https://www.holycrosshealth.org/health-and-wellness/covid-19-vaccine/schedule-appointment")
-    holycross.act()
+    holycross = Provider("Holy Cross Hospital", "Holy Cross Health will release the date of our next COVID-19 vaccine clinics today, Feb. 1 at 4 p.m", "https://www.holycrosshealth.org/health-and-wellness/covid-19-vaccine/schedule-appointment")
+#    holycross.act(debug=True)
 
     gbmc = Provider("GBMC", "No appointments currently available", "https://www.gbmc.org/covid-vaccine")
     gbmc.act()

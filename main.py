@@ -35,6 +35,9 @@ def known_working():
                      "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
     giant.act(debug=True)
 
+    six_flags = Provider("6 Flags America", "Please continue to check this site for updates about appointment availability", "https://www.arcgis.com/sharing/rest/content/items/4b361dcb49464fcda4fd27428c3a50e3/data?f=json")
+    six_flags.act(debug=True)
+
 
     time.sleep(3)
     utils.log("End vax search")

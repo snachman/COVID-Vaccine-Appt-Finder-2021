@@ -36,7 +36,7 @@ def known_working():
     giant.act(debug=True)
 
     six_flags = Provider("6 Flags America", "Please continue to check this site for updates about appointment availability", "https://www.arcgis.com/sharing/rest/content/items/4b361dcb49464fcda4fd27428c3a50e3/data?f=json")
-    six_flags.act(debug=True)
+    six_flags.act()
 
     cvs = Provider("CVS Pharmacy", "The COVID-19 vaccine is not yet available at CVS Pharmacy in Maryland.", "https://www.cvs.com/bizcontent/marketing/covidvaccine_landingpage/acn-tool.js")
     cvs.act(debug=True)

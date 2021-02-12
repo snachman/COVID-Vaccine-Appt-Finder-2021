@@ -1,5 +1,3 @@
-import datetime
-import os
 import random
 import utils
 import requests

@@ -21,8 +21,6 @@ def known_working():
 
 
 
-    riteaid = Provider("Rite Aid", "You cannot schedule a vaccination appointment directly through Rite Aid at this time, however you can schedule through your state or local jurisdiction", "https://www.riteaid.com/Covid-19")
-    riteaid.act(debug=True)
 
 
 
@@ -41,8 +39,8 @@ def known_working():
     cvs = Provider("CVS Pharmacy", "The COVID-19 vaccine is not yet available at CVS Pharmacy in Maryland.", "https://www.cvs.com/bizcontent/marketing/covidvaccine_landingpage/acn-tool.js")
     cvs.act()
 
-    riteaid = Provider("Rite Aid", "Rite Aid is helping to administer vaccines in some areas, but is not currently able to schedule appointments directly", "https://www.riteaid.com/Covid-19")
-    riteaid.act()
+    riteaid = Provider("Rite Aid", "but is not currently able to schedule appointments", "https://www.riteaid.com/Covid-19")
+    riteaid.act(debug=True)
 
     time.sleep(3)
     utils.log("End vax search")

@@ -74,7 +74,6 @@ class Provider():
 
 
     def cvs_act(self, debug_flag=False):
-        print('test')
         booking_page = "https://www.cvs.com/immunizations/covid-19-vaccine?icid=cvs-home-hero1-banner-1-link2-coronavirus-vaccine"
         data_url = "https://www.cvs.com/immunizations/covid-19-vaccine.vaccine-status.MD.json?vaccineinfo"
         fullly_booked_string = "Fully Booked"
@@ -84,10 +83,8 @@ class Provider():
         time.sleep(3)
         r = requests.get(data_url)
         data = json.loads(r.text)
-        print(data)
         stores = (data['responsePayloadData']['data']["MD"])
         for store in stores:
-            print(store)
             state = store['state']
             city = store['city']
             city = city.title()

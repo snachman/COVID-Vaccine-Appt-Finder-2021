@@ -1,4 +1,6 @@
 import random
+import time
+import json
 import utils
 import requests
 
@@ -16,8 +18,9 @@ class Provider():
         uas = ["Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36", "Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36", "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1"]
         current_ua = random.choice(uas)
         headers = {"User-Agent": current_ua}
-        r = requests.get(self.url, headers=headers)
-        return r
+        if "cvs" not in self.organization.lower():
+            r = requests.get(self.url, headers=headers)
+            return r
 
     def check_for_claimed_phrase(self, body):
         if self.test_phrase in body:
@@ -68,3 +71,34 @@ class Provider():
             utils.log(str(data.status_code))
 
         # https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/
+
+
+    def cvs_act(self, debug_flag=False):
+        print('test')
+        booking_page = "https://www.cvs.com/immunizations/covid-19-vaccine?icid=cvs-home-hero1-banner-1-link2-coronavirus-vaccine"
+        data_url = "https://www.cvs.com/immunizations/covid-19-vaccine.vaccine-status.MD.json?vaccineinfo"
+        fullly_booked_string = "Fully Booked"
+
+        r = requests.get(
+            booking_page)
+        time.sleep(3)
+        r = requests.get(data_url)
+        data = json.loads(r.text)
+        print(data)
+        stores = (data['responsePayloadData']['data']["MD"])
+        for store in stores:
+            print(store)
+            state = store['state']
+            city = store['city']
+            city = city.title()
+            totalAvailable = str(store['totalAvailable'])
+            pctAvailable = str(store['pctAvailable'])
+            status = store['status']
+            if totalAvailable == 0:
+                pass
+                utils.log(f"CVS {city},no appts")
+            elif int(totalAvailable) > 0:
+                alert_string = f"CVS {city}: {totalAvailable} available which makes up {pctAvailable}% of the total available"
+                utils.alert(alert_string, debug_flag)
+
+

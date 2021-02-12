@@ -22,7 +22,7 @@ def known_working():
 
 
     riteaid = Provider("Rite Aid", "You cannot schedule a vaccination appointment directly through Rite Aid at this time, however you can schedule through your state or local jurisdiction", "https://www.riteaid.com/Covid-19")
-    riteaid.act()
+    riteaid.act(debug=True)
 
 
 
@@ -31,7 +31,7 @@ def known_working():
 
 
     giant = Provider("Giant Foods Stores",
-                     "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you",
+                     "Please check back later",
                      "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
     giant.act(debug=True)
 
@@ -39,8 +39,10 @@ def known_working():
     six_flags.act()
 
     cvs = Provider("CVS Pharmacy", "The COVID-19 vaccine is not yet available at CVS Pharmacy in Maryland.", "https://www.cvs.com/bizcontent/marketing/covidvaccine_landingpage/acn-tool.js")
-    cvs.act(debug=True)
+    cvs.act()
 
+    riteaid = Provider("Rite Aid", "Rite Aid is helping to administer vaccines in some areas, but is not currently able to schedule appointments directly", "https://www.riteaid.com/Covid-19")
+    riteaid.act()
 
     time.sleep(3)
     utils.log("End vax search")
@@ -54,6 +56,7 @@ def obsolete():
 
 def development(debug=True):
     pass
+
 
 if __name__ == '__main__':
     known_working()

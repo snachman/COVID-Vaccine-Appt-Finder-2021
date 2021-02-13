@@ -36,14 +36,11 @@ def known_working():
     six_flags = Provider("6 Flags America", "Please continue to check this site for updates about appointment availability", "https://www.arcgis.com/sharing/rest/content/items/4b361dcb49464fcda4fd27428c3a50e3/data?f=json")
     six_flags.act()
 
-
     riteaid = Provider("Rite Aid", "but is not currently able to schedule appointments", "https://www.riteaid.com/Covid-19")
     riteaid.act(debug=True)
 
-    print("begin cvs")
     cvs = Provider("CVS Pharmacy", "", "")
     cvs.cvs_act(debug_flag=True)
-    print("end cvs")
 
     time.sleep(3)
     utils.log("End vax search")

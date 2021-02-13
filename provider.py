@@ -77,7 +77,7 @@ class Provider():
         booking_page = "https://www.cvs.com/immunizations/covid-19-vaccine?icid=cvs-home-hero1-banner-1-link2-coronavirus-vaccine"
         data_url = "https://www.cvs.com/immunizations/covid-19-vaccine.vaccine-status.MD.json?vaccineinfo"
         fullly_booked_string = "Fully Booked"
-        
+
         r = requests.get(
             booking_page)
         time.sleep(3)
@@ -91,11 +91,13 @@ class Provider():
             totalAvailable = str(store['totalAvailable'])
             pctAvailable = str(store['pctAvailable'])
             status = store['status']
-            if totalAvailable == 0:
+            if int(totalAvailable) == 0:
                 utils.log(f"CVS {city},no appts")
             elif int(totalAvailable) > 0:
                 utils.log(f"city,CHECK SITE")
                 alert_string = f"CVS {city}: {totalAvailable} available which makes up {pctAvailable}% of the total available"
                 utils.alert(alert_string, debug_flag)
+            else:
+                print(r.status_code)
 
 

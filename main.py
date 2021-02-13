@@ -39,10 +39,12 @@ def known_working():
 
     riteaid = Provider("Rite Aid", "but is not currently able to schedule appointments", "https://www.riteaid.com/Covid-19")
     riteaid.act(debug=True)
+
     print("begin cvs")
     cvs = Provider("CVS Pharmacy", "", "")
     cvs.cvs_act(debug_flag=True)
     print("end cvs")
+
     time.sleep(3)
     utils.log("End vax search")
 

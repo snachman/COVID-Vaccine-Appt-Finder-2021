@@ -92,7 +92,6 @@ class Provider():
             pctAvailable = str(store['pctAvailable'])
             status = store['status']
             if totalAvailable == 0:
-                pass
                 utils.log(f"CVS {city},no appts")
             elif int(totalAvailable) > 0:
                 alert_string = f"CVS {city}: {totalAvailable} available which makes up {pctAvailable}% of the total available"

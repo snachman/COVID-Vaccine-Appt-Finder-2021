@@ -91,9 +91,9 @@ class Provider():
             totalAvailable = str(store['totalAvailable'])
             pctAvailable = str(store['pctAvailable'])
             status = store['status']
-            if int(totalAvailable) == 0:
+            if int(totalAvailable) <= 1:
                 utils.log(f"CVS {city},no appts")
-            elif int(totalAvailable) > 0:
+            elif int(totalAvailable) > 1:
                 utils.log(f"city,CHECK SITE")
                 alert_string = f"CVS {city}: {totalAvailable} available which makes up {pctAvailable}% of the total available"
                 utils.alert(alert_string, debug_flag)

@@ -39,8 +39,8 @@ def known_working():
     riteaid = Provider("Rite Aid", "but is not currently able to schedule appointments", "https://www.riteaid.com/Covid-19")
     riteaid.act(debug=True)
 
-    cvs = Provider("CVS Pharmacy", "", "")
-    cvs.cvs_act(debug_flag=True)
+    # cvs = Provider("CVS Pharmacy", "", "")
+    # cvs.cvs_act(debug_flag=True)
 
     walgreens = Provider("Walgreens", "", "")
     walgreens.walgreens_act(21202, debug_flag=True)
@@ -65,3 +65,4 @@ def development(debug=True):
 
 if __name__ == '__main__':
     known_working()
+

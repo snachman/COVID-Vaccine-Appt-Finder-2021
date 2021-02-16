@@ -42,6 +42,14 @@ def known_working():
     cvs = Provider("CVS Pharmacy", "", "")
     cvs.cvs_act(debug_flag=True)
 
+    walgreens = Provider("Walgreens", "", "")
+    walgreens.walgreens_act(21202, debug_flag=True)
+    time.sleep(10)
+    walgreens.walgreens_act(21702, debug_flag=True)
+    time.sleep(10)
+    walgreens.walgreens_act(21401, debug_flag=True)
+
+
     time.sleep(3)
     utils.log("End vax search")
 
@@ -55,6 +63,5 @@ def obsolete():
 def development(debug=True):
     pass
 
-
 if __name__ == '__main__':
-    walgreens = Provider("Walgreens", "", "").walgreens_act(21202)
+    known_working()

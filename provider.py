@@ -1,9 +1,10 @@
+import os
 import random
 import time
 import json
 import utils
 import requests
-
+from pyzipcode import ZipCodeDatabase
 
 class Provider():
     def __init__(self, organization,test_phrase, url):
@@ -101,3 +102,30 @@ class Provider():
                 print(r.status_code)
 
 
+
+    def walgreens_act(self, zip, debug_flag=False):
+        zcdb = ZipCodeDatabase()
+        code = zcdb[zip]
+        lat = str(code.latitude)
+        long = str(code.longitude)
+        cmd = """curl 'https://www.walgreens.com/hcschedulersvc/svc/v1/immunizationLocations/availability' \
+  -H 'authority: www.walgreens.com' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'dnt: 1' \
+  -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36' \
+  -H 'content-type: application/json; charset=UTF-8' \
+  -H 'origin: https://www.walgreens.com' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://www.walgreens.com/findcare/vaccination/covid-19/location-screening' \
+  -H 'accept-language: en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7' \
+  -H 'cookie: mbox=session#1a91c7cfa7434b4285fb5653017d3993#1613229408|PC#1a91c7cfa7434b4285fb5653017d3993.34_0#1676472353; USER_LOC=2%2BsKJSc9HtJQOXi9Ou12uguAIjJ7tdA3geN582eaqhPpoJ0Uwr9Ujs0O6uydMJPA; bm_sz=A627F779733FF6A74725727D5FE21332~YAAQwkMkF6yRao93AQAA/82FqgpUg58coGPbdvYmCYHOFwEp6IqKbA+D8y1cmoj8Li/d3pVr/ZdPxFJvfXc/nwsPLaQVkGiPR2EzvP8/t7vCU6P0CJEVPvtMa4QFat1UNjJ1EWTviVC8yQntSW0fAPX4h8iTZfTBnfBb62T/5u2bqNDtIcoaaiiA3p2GuhAEvew=; XSRF-TOKEN=D4POV4d5Z8H1tQ==.HcLRJLcZ6+qBT1qsEVrmfaJGY7dihNwNwzc1OHERfrc=; dtCookie=2$2E0F9259A62B5D351D407FFB54C9B415; ak_bmsc=59D2FF39BC48B7390CCCCD27802B119A172443C2B65300005FA72B6005DDE474~plcrVvoKOxYNK6xB+k9EASPiP2/qqIgIE8YQPxvVpvX2DcHQc9seNLW2Ga9+WmlvPsIL7DQPVRr7F2iUvhJpf9bsVBuNv9u0wsQoBfd4/tHyMNzBF78ax5PYpp978pav7XFTUsUMPbjkMu7i9Rbm2VXhW9nNOoQTM1Q6qGbO+jfWuGR0qSIPJy1xOaOmT8PjrOUfu1nsl5r16IwXwPFfZ6Ha4bB4355mnSziqMa0kzAy0=; bm_mi=166AA071D1390D8457EC84763906318C~iqpkBLeuYvADMVpxjXN2Y3pM7Gfx1goTVNm+ku0DO5Ey4Zmw3qPMmoJhMCLV7uzFm5SYjSP+ehupQ/7nik93Z5wGEzwIBv6uIgW//DTSFpUtckgZlmQ7Ozs7s2AJ1mojVclNKdIvkp0O7yr9qZnutNfPXJpvLiUwva3NaCMy2MISwR9zNi99lx+Cfnp5hvhjaE0JQFT21IEXwwSsKrXJnKQEsmSQLaEqfcnbQE4oetPxfMYaWf55ez7PEjb9lQT3yH2WJsKg65BoQZSd6LBYfw==; wag_sid=v0z1nzvh9o8pf43lq8tahxci; uts=1613473633781; fc_vnum=2; fc_vexp=true; firstVisit=fc_fVisit; AMCVS_5E16123F5245B2970A490D45%40AdobeOrg=1; AMCV_5E16123F5245B2970A490D45%40AdobeOrg=-1124106680%7CMCIDTS%7C18675%7CMCMID%7C76041403865188180393295259207093113240%7CMCOPTOUT-1613480835s%7CNONE%7CvVersion%7C5.2.0; session_id=b1e27ba4-93e3-4080-a532-37b0d3624233; gRxAlDis=N; _abck=13986FEABCCCA2F2E8487E2D5D00990E~0~YAAQwkMkF5OTao93AQAADxWGqgWqduFrva9uvOZOfkqY3saDHFYYvHI6j/anYUfwhKKwqBnZAC538jK5FfUWKUcrl8oIx4dm8TPDJ7xWFAnZCFU2catYUYMO/2hCijxSGRTB8q5rQSTW6+Fj3bZgVeEI8bWe2TSoN7QFIY3/wdDHib0gVsf8dhrr/86z2MW4U1N6T/kd3yhM7wAZmj5ZlMMmEwG35FstGc+OXkobpoK+FF76eDMOY8cuJAZOtZ8xs8DVmA0w8LO0eVE5nXqEnfDJ+CuxO1K5TbcohF2W7pWv15XC1uMCJjf3NiKaWPXk/o9b5D28+pMAZkx5mS//wIqFrS68rNOEBg==~-1~-1~-1; akavpau_walgreens=1613473955~id=01fa1eeb6c4cc5ddca304ddca65b868b; bm_sv=0CC5F0FB6BA8C3AA674B07C4F7FA073F~HGa8UiNthQzWo6qItfzJyCXiNy/7jtalJu5j0cDaPQpiuPWeObU3bBoLTusC4z1zm5ipmxlp2REuzsL/s9nfap2v9hfEVpaFULFeNlh6xFECzjApcuJ5hc+kJs4imqmWfGfDNfir1lV+HPt1nablYm1f3mi2c0qK0o6YnUTcWtY=' \
+  --data-raw '{"serviceId":"99","position":{"latitude":""" + lat + ""","longitude":""" + long + """},"appointmentAvailability":{"startDateTime":"2021-02-17"},"radius":25}' \
+  --compressed"""
+        response = os.popen(cmd)
+        data = (response.read())
+        response.close()
+        j = json.loads(data)
+        available = j['appointmentsAvailable']
+        print(j)

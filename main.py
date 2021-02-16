@@ -57,4 +57,4 @@ def development(debug=True):
 
 
 if __name__ == '__main__':
-    known_working()
+    walgreens = Provider("Walgreens", "", "").walgreens_act(21202)

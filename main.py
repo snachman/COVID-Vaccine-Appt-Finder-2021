@@ -39,6 +39,9 @@ def known_working():
     riteaid = Provider("Rite Aid", "but is not currently able to schedule appointments", "https://www.riteaid.com/Covid-19")
     riteaid.act(debug=True)
 
+    shoprite = Provider("Shoprite NJ", "There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you.", "https://covidinfo.reportsonline.com/covidinfo/ShopRite.html")
+    shoprite.act(debug=True)
+
     # cvs = Provider("CVS Pharmacy", "", "")
     # cvs.cvs_act(debug_flag=True)
 
@@ -65,4 +68,3 @@ def development(debug=True):
 
 if __name__ == '__main__':
     known_working()
-

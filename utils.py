@@ -16,7 +16,7 @@ def alert(message, debug_flag=False):
 
 
 def log(message):
-    now = datetime.datetime.now()
+    now = datetime.datetime.utcnow()+datetime.timedelta(hours=-5)
     stamp = now.strftime("%m/%d/%Y,%H:%M,")
     with open("log.txt", "a") as file:
         line = stamp + message + "\n"

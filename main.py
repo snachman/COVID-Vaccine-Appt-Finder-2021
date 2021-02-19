@@ -3,8 +3,6 @@ import time
 import utils
 from provider import Provider
 
-# https://www.marylandvax.org/clinic/search?service%5B%5D=Vaccination&location=Prince+George%27s+County%2C+MD%2C+USA&search_radius=100%2B+miles&search_name=&search_date=&commit=Search#search_results
-
 
 def known_working():
     utils.log("Begin vax search")

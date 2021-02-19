@@ -104,6 +104,7 @@ class Provider():
 
 
     def walgreens_act(self, zip, debug_flag=False):
+
         zcdb = ZipCodeDatabase()
         code = zcdb[zip]
         lat = str(code.latitude)
@@ -136,6 +137,37 @@ class Provider():
             message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
             utils.alert(message, debug_flag=True)
+
+    def jersey_walgreens_act(self, debug_flag=False):
+
+        cmd = """curl 'https://www.walgreens.com/hcschedulersvc/svc/v1/immunizationLocations/availability' \
+  -H 'authority: www.walgreens.com' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'dnt: 1' \
+  -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36' \
+  -H 'content-type: application/json; charset=UTF-8' \
+  -H 'origin: https://www.walgreens.com' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://www.walgreens.com/findcare/vaccination/covid-19/location-screening' \
+  -H 'accept-language: en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7' \
+  -H 'cookie: USER_LOC=2%2BsKJSc9HtJQOXi9Ou12uguAIjJ7tdA3geN582eaqhPpoJ0Uwr9Ujs0O6uydMJPA; ak_bmsc=D537396850C93FA9F295123CF19CB0E5172443D0A5020000D0DE2F60DD879519~plDrvOqcR9m7ufTqGpe/B8jcuNapzMRYf/CkqeBqVXonzdn3fHfIJdKyA+RgZ6XvINHeJZWqySuBOlhSxa85EgO3qPAhRiAb6zo0wfSx6siGXfWrv3Lde6NRk6gvLcGSmcTPtoSyUkNc6xqFPuS01fS6iS4+cH9XLyhGRO8oX9ekIcgTLCBtsGHaz7rE397K1v6uHfjS8xi+NpaUaWJyJmc860osh/1/kMP37jSQmC8rY=; bm_sz=2EDDA20179C3850B248144D3B534623B~YAAQ0EMkFz/tsrZ3AQAAZF/+ugr04pdQKALRaHkyfhDq5RSqM9BoxYNFI5BFa0jPJiveoUfIA4ntAm6gPKa6wlJn4K60skYUrE2mYCMkiy2pr0G8gqPr1E41hy2wRAz4WzwUnTdCBt0M5R87Ti6+/wFdHEJlxdO9MQR4AJEApKT6tS+Ns34dMezfda0PXdXwpLRm; wag_sid=dyj5xw5udlhfsdxc581olbmx; uts=1613749969357; XSRF-TOKEN=ErTgjFLNXfCRLw==.uF2aLBHMtSqJvsUiInc051RwrpUk+hQ+3O8gK6+EO7c=; at_check=true; session_id=cbfa8d7a-37db-48e4-81ec-7ffda834560c; dtCookie=6$CA84D8A628AE4D51221A8E4DFD3C0809; AMCVS_5E16123F5245B2970A490D45%40AdobeOrg=1; gRxAlDis=N; strOfrId={"WAStrId":"17609"}; str_nbr_do=17609; str=%7B%22sId%22%3A%2219957%22%2C%22lt%22%3A%2240.21946813%22%2C%22lg%22%3A%22-74.74531011%22%2C%22st%22%3A%22739%20GREENWOOD%20AVENUE%22%2C%22ct%22%3A%22TRENTON%22%2C%22zp%22%3A%2208609%22%2C%22stat%22%3A%22NJ%22%2C%22bag%22%3A%220%22%2C%22sdp%22%3A%221%22%2C%22t4hr%22%3A%22N%22%7D; gstPS={"ST":["trenton, nj","trenton, nj"]}; bm_mi=AAA8E34424FFA0420824175F9AAE9863~u2NRgqsQn18pVSJznoZ1Di5sIo5nteST91CJ9B6zxPndUqs85EFkq6Lvon0f2d6S3szUgWxLLtfUa7C+mdi93u9HD5kMulk7EdWxYpaSD8zgXozlSfdf34hiW08HY45L+OVq36wHqC0sM/rS+GSzBJMj7Zh5J+FHrM+0p/GM8ZZq6BXofnW85BI32gC/hnHkNkPu0eliSsham4GJ2r5Li0dYQnHOWD7e1XrQLhV3mSuZyDwbvRLNBIKmpYz4m03HQ/Vm8wNn8huWzCWpUAlR1Q==; mbox=PC#1a91c7cfa7434b4285fb5653017d3993.34_0#1676994812|session#a93d300339a34202b962e0788a478f0d#1613751830; fc_vnum=3; firstVisit=fc_fVisit; AMCV_5E16123F5245B2970A490D45%40AdobeOrg=-1124106680%7CMCIDTS%7C18678%7CMCMID%7C76041403865188180393295259207093113240%7CMCOPTOUT-1613757213s%7CNONE%7CvVersion%7C5.2.0; akavpau_walgreens=1613750393~id=13562da4c6da6ee4109fbdd5167d557f; bm_sv=77A82964CD30F341FEB82A96B8ACC8E4~lOod8lObMdixWhYaTg5F6Jnx2Nffax3LPhEiL8pFWIxntVmJ5ncVURV3HDsOwvkJXejGZteUPxzPJH++M1r9pdQ6aVK/xtPtt+isP+tS7VBu2rlBZGdWxdmCQ5KLOBU5pC2xU/Ch5OR07Nn5Q97tdvGQ+74g/STYwqzG1aKAJ6U=; _abck=13986FEABCCCA2F2E8487E2D5D00990E~0~YAAQz0MkF3US/rV3AQAAq0gAuwUZqS1Pzt3vi3vdyPRzzKiB9XLlpWUKe2CnNv0sEcOltmS/7D3nKLYADc4dedw6KsNvGmGK3TXl9MC2RqtU5LMIFxJPiEvf5Dqg5xsYpuFZRN8tQmqlv0prjPJDwqc5/B1P1nNg8z3AGVkLUKAuJ0QqrSW+6fCai/izSHBJXkFJOHjfqPj958scCeTiDUm+m4Y8uidCikLDW2X/6JDt3EnyhZ8hCXxL4AlXewxCnVB4dzkYqEy2FuF4hpr+yC2f6sunBG2VfKGSNSzvjQkhzCb93/ZQKmNVqwi5b5h/MmwHGpKnM4wvozT1SN/RB9PHcF8seSJ6Bg==~-1~-1~-1' \
+  --data-raw '{"serviceId":"99","position":{"latitude":40.1778886,"longitude":-74.58348869999999},"appointmentAvailability":{"startDateTime":"2021-02-20"},"radius":25}' \
+  --compressed"""
+        response = os.popen(cmd)
+        data = (response.read())
+        response.close()
+        j = json.loads(data)
+        if not j['appointmentsAvailable']:
+            message = "Walgreens - No available appts within " + str(j['radius']) + ' miles of ' + j['zipCode']
+            utils.log(message)
+            # utils.alert(message, debug_flag=True)
+
+        elif j['appointmentsAvailable']:
+            message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
+            utils.log(message)
+            utils.alert(message, debug_flag=debug_flag)
 
 
 

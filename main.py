@@ -43,9 +43,6 @@ def known_working():
                         "https://covidinfo.reportsonline.com/covidinfo/ShopRite.html")
     shoprite.act(debug=True)
 
-    # cvs = Provider("CVS Pharmacy", "", "")
-    # cvs.cvs_act(debug_flag=True)
-
     walgreens = Provider("Walgreens", "", "")
     walgreens.walgreens_act(21202, debug_flag=True)
     time.sleep(10)
@@ -65,8 +62,6 @@ def known_working():
 
 
 def obsolete():
-    # garrett = Provider("Garrett Co.", "THERE ARE NO APPOINTMENTS AVAILABLE AT THIS TIME", "https://health.maryland.gov/allegany/Pages/COVIDVaccination.aspx")
-    # stagnes = Provider("St. Agnes", "Due to overwhelming demand Ascension Saint Agnes has no vaccination appointments available at this time", "https://healthcare.ascension.org/COVID-19/vaccinations")
     pass
 
 

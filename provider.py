@@ -138,7 +138,7 @@ class Provider():
             utils.log(message)
             utils.alert(message, debug_flag=True)
 
-    def jersey_walgreens_act(self, debug_flag=False):
+    def allentown_nj_walgreens_act(self, debug_flag=False):
 
         cmd = """curl 'https://www.walgreens.com/hcschedulersvc/svc/v1/immunizationLocations/availability' \
   -H 'authority: www.walgreens.com' \

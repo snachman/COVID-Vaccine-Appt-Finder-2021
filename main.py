@@ -51,6 +51,7 @@ def known_working():
     walgreens.walgreens_act(21702, debug_flag=True)
     time.sleep(10)
     walgreens.walgreens_act(21401, debug_flag=True)
+    walgreens.jersey_walgreens_act(debug_flag=True)
 
     hackensack = Provider("Hackensack Meridian Health", "All appointments currently are full. We hope to schedule again as more vaccines are received. Thank you for your patience. Please continue to check back", 'https://www.hackensackmeridianhealth.org/covid19/')
     hackensack.act(debug=True)

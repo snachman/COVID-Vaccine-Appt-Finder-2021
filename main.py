@@ -52,6 +52,8 @@ def known_working():
     time.sleep(10)
     walgreens.walgreens_act(21401, debug_flag=True)
 
+    hackensack = Provider("Hackensack Meridian Health", "All appointments currently are full. We hope to schedule again as more vaccines are received. Thank you for your patience. Please continue to check back", 'https://www.hackensackmeridianhealth.org/covid19/')
+    hackensack.act(debug=True)
 
     time.sleep(3)
     utils.log("End vax search")

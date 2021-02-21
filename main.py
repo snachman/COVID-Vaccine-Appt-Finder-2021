@@ -58,7 +58,6 @@ def known_working():
     hackensack.act(debug=True)
     walgreens.allentown_nj_walgreens_act(debug_flag=True)
 
-    time.sleep(3)
     utils.log("End vax search")
 
 

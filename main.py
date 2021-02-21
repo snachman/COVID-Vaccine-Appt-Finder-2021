@@ -49,9 +49,9 @@ def known_working():
     mercy.act()
     gbmc.act()
     walgreens.walgreens_act(21202, debug_flag=True)
-    time.sleep(10)
+    time.sleep(20)
     walgreens.walgreens_act(21702, debug_flag=True)
-    time.sleep(10)
+    time.sleep(20)
     walgreens.walgreens_act(21401, debug_flag=True)
 
     # New Jersey

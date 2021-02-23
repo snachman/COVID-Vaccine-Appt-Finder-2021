@@ -57,6 +57,20 @@ def known_working():
     walgreens.walgreens_act(21401, debug_flag=True)
     time.sleep(20)
     walgreens.walgreens_act(95482, debug_flag=True)
+    md_rite_aid_stores = {
+        "11213":"York Road South",
+        "02214":"Smith Ave",
+        "04686":"Pikesville",
+        "00349":"Park Heights Ave",
+        "00362":"Northern Pkwy",
+        "03871":"Owings Mills",
+        "00390":"Randallstown",
+    }
+    for store in md_rite_aid_stores.keys():
+        num = store
+        name = md_rite_aid_stores[store]
+        riteaid.rite_aid_act(store_number=num, store_name=name, debug=True)
+
 
 
     # New Jersey

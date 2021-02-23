@@ -171,3 +171,19 @@ class Provider():
 
 
 
+
+def rite_aid_act(store_number):
+    store_number = str(store_number)
+    url = f"https://www.riteaid.com/services/ext/v2/vaccine/checkSlots?storeNumber={store_number}"
+    r = requests.get(url)
+    no_appts = """{"Data":{"slots":{"1":false,"2":false}},"Status":"SUCCESS","ErrCde":null,"ErrMsg":null,"ErrMsgDtl":null}"""
+    if r.text == no_appts:
+        utils.log(f"Rite Aid Store {store_number} no appts")
+    else:
+        message = f"Rite Aid Store {store_number} APPT AVAILABLE"
+        utils.log(message)
+        utils.alert(message)
+        utils.alert("APPT DATA CAPTURE")
+        utils.alert(r.text)
+    time.sleep(20)
+

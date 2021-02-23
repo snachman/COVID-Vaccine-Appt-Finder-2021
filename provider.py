@@ -183,10 +183,10 @@ class Provider():
             message = f"Rite Aid Store {store_number}, {store_name} APPT AVAILABLE"
             utils.log(message)
             utils.alert(message, debug)
-            utils.alert("APPT DATA CAPTURE", debug)
+            utils.log("APPT DATA CAPTURE", debug)
             try:
-                utils.alert("data: " + r.text, debug)
+                utils.log("data: " + r.text, debug)
             except:
-                utils.alert("fail to print data", debug)
+                utils.log("fail to print data", debug)
         time.sleep(20)
 

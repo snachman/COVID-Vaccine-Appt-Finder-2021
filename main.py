@@ -65,6 +65,14 @@ def known_working():
         "00362":"Northern Pkwy",
         "03871":"Owings Mills",
         "00390":"Randallstown",
+        "02210":"Arbutus",
+        "02223":"Eldersburg",
+        "00384":"Ellicott City",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
     }
     for store in md_rite_aid_stores.keys():
         num = store

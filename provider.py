@@ -136,7 +136,7 @@ class Provider():
         elif j['appointmentsAvailable']:
             message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
-            utils.alert(message, debug_flag=True)
+            utils.alert(message, debug_flag=debug_flag)
 
     def allentown_nj_walgreens_act(self, debug_flag=False):
 

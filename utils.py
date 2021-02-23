@@ -4,11 +4,20 @@ import datetime
 
 
 
-def alert(message, debug_flag=False):
-    if debug_flag == True:
-        destination = ["https://hooks.slack.com/services/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", "https://hooks.slack.com/services/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"] # logs channel
-    elif debug_flag == False:
-        destination = ["https://hooks.slack.com/services/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"] # covid-vaccine-general channel
+def alert(message, channel):
+    main_channel = "https://hooks.slack.com/services/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"
+    maryland_channel = "https://hooks.slack.com/services/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"
+    high_confidence_channel = "https://hooks.slack.com/services/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"
+    personal_channel = "https://hooks.slack.com/services/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"
+    new_jersey_channel = "https://hooks.slack.com/services/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"
+
+    if channel.lower() == "maryland":
+        destination = [maryland_channel]
+    elif channel.lower() == "personal":
+        destination = [personal_channel]
+    elif channel.lower() == "new jersey":
+        destination = [new_jersey_channel]
+
     for dest in destination:
         curl = """curl -X POST -H 'Content-type: application/json' --data '{"text":"%s"}' %s""" % (
             message, dest)

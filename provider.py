@@ -29,7 +29,7 @@ class Provider():
         else:
             return False
 
-    def act(self, debug=False):
+    def act(self, channel):
         data = self.get_data()
         if data.status_code == 200:
             if self.check_for_claimed_phrase(data.text):
@@ -37,25 +37,25 @@ class Provider():
                 utils.log(self.get_org_name() + "," + results)
             else:
                 results = "CHECK SITE"
-                utils.alert(results + "\n" + data.url, debug)
+                utils.alert(results + "\n" + data.url, channel)
                 utils.log(self.get_org_name() + "," + results)
         else:
             utils.log(str(data.status_code))
 
 
-    def frederick_act_full_appts(self, debug_flag=False):
+    def frederick_act_full_appts(self, channel):
         data = self.get_data()
         if data.status_code == 200:
             number_of_Full = (data.text.count("Full"))
             if number_of_Full != 7:
                 results = "CHECK SITE"
-                utils.alert(results + "\n" + data.url, debug_flag)
+                utils.alert(results + "\n" + data.url, channel)
                 utils.log(self.get_org_name() + "," + results)
             else:
                 print("equal to 7")
 
 
-    def adventist_act(self, debug_flag=False):
+    def adventist_act(self, channel):
         data = self.get_data()
         # print(data.status_code)
         # print(data.text)
@@ -63,7 +63,7 @@ class Provider():
             number_of_Alert_Me = (data.text.count("Alert Me"))
             if number_of_Alert_Me != 4:
                 results = "CHECK SITE"
-                utils.alert(results + "\n" + data.url, debug_flag)
+                utils.alert(results + "\n" + data.url, channel)
                 utils.log(self.get_org_name() + "," + results)
             else:
                 results = "No appts"
@@ -74,7 +74,7 @@ class Provider():
         # https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/
 
 
-    def cvs_act(self, debug_flag=False):
+    def cvs_act(self, channel):
         booking_page = "https://www.cvs.com/immunizations/covid-19-vaccine?icid=cvs-home-hero1-banner-1-link2-coronavirus-vaccine"
         data_url = "https://www.cvs.com/immunizations/covid-19-vaccine.vaccine-status.MD.json?vaccineinfo"
         fullly_booked_string = "Fully Booked"
@@ -97,13 +97,13 @@ class Provider():
             elif int(totalAvailable) > 1:
                 utils.log(f"city,CHECK SITE")
                 alert_string = f"CVS {city}: {totalAvailable} available which makes up {pctAvailable}% of the total available"
-                utils.alert(alert_string, debug_flag)
+                utils.alert(alert_string, channel)
             else:
                 print(r.status_code)
 
 
 
-    def walgreens_act(self, zip, debug_flag=False):
+    def walgreens_act(self, zip, channel):
 
         zcdb = ZipCodeDatabase()
         code = zcdb[zip]
@@ -136,9 +136,9 @@ class Provider():
         elif j['appointmentsAvailable']:
             message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
-            utils.alert(message, debug_flag=debug_flag)
+            utils.alert(message, channel)
 
-    def allentown_nj_walgreens_act(self, debug_flag=False):
+    def allentown_nj_walgreens_act(self, channel):
 
         cmd = """curl 'https://www.walgreens.com/hcschedulersvc/svc/v1/immunizationLocations/availability' \
   -H 'authority: www.walgreens.com' \
@@ -167,12 +167,12 @@ class Provider():
         elif j['appointmentsAvailable']:
             message = "NJ: Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
-            utils.alert(message, debug_flag=debug_flag)
+            utils.alert(message, channel)
 
 
 
 
-    def rite_aid_act(self, store_number, store_name, debug=False):
+    def rite_aid_act(self, store_number, store_name, channel):
         store_number = str(store_number)
         url = f"https://www.riteaid.com/services/ext/v2/vaccine/checkSlots?storeNumber={store_number}"
         r = requests.get(url)
@@ -182,11 +182,11 @@ class Provider():
         else:
             message = f"Rite Aid Store {store_number}, {store_name} APPT AVAILABLE"
             utils.log(message)
-            utils.alert(message, debug)
-            utils.log("APPT DATA CAPTURE", debug)
+            utils.alert(message, channel)
+            utils.log("APPT DATA CAPTURE", channel)
             try:
-                utils.log("data: " + r.text, debug)
+                utils.log("data: " + r.text, channel)
             except:
-                utils.log("fail to print data", debug)
-        time.sleep(20)
+                utils.log("fail to print data", channel)
+        time.sleep(7)
 

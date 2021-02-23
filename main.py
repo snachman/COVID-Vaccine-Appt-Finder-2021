@@ -47,16 +47,16 @@ def known_working():
 
     adventist.adventist_act()
     six_flags.act()
-    giant.act(debug=True)
+    giant.act()
     mercy.act()
     gbmc.act()
-    walgreens.walgreens_act(21202, debug_flag=True)
+    walgreens.walgreens_act(21202, channel='maryland')
     time.sleep(20)
-    walgreens.walgreens_act(21702, debug_flag=True)
+    walgreens.walgreens_act(21702, channel='maryland')
     time.sleep(20)
-    walgreens.walgreens_act(21401, debug_flag=True)
-    time.sleep(20)
-    walgreens.walgreens_act(95482, debug_flag=True)
+    walgreens.walgreens_act(21401, channel='maryland')
+    # time.sleep(20)
+    # walgreens.walgreens_act(95482, channel='maryland')
     md_rite_aid_stores = {
         "11213":"York Road South",
         "02214":"Smith Ave",
@@ -72,15 +72,15 @@ def known_working():
     for store in md_rite_aid_stores.keys():
         num = store
         name = md_rite_aid_stores[store]
-        riteaid.rite_aid_act(store_number=num, store_name=name, debug=True)
+        riteaid.rite_aid_act(store_number=num, store_name=name, channel="maryland")
 
 
 
     # New Jersey
-    shoprite.act(debug=True)
-    hackensack.act(debug=True)
-    walgreens.allentown_nj_walgreens_act(debug_flag=True)
-    chemed_oc_nj.act(debug=True)
+    shoprite.act(channel="new jersey")
+    hackensack.act(channel="new jersey")
+    walgreens.allentown_nj_walgreens_act(channel="new jersey")
+    chemed_oc_nj.act(channel="new jersey")
     nj_rite_aid_stores = {"10505":"Robbinsville, NJ",
                           "01326": "Trenton, NJ",
                           "02526": "Wrightstown, NJ",
@@ -94,6 +94,13 @@ def known_working():
                           "02521": "Lumberton, NJ",
                           "00135": "Willingboro, NJ",
                           "10517": "Whiting, NJ",
+                          "02707":"Toms River",
+                          "02527":"Manchester",
+                          "10515":"Toms River",
+                          "10513":"Toms River",
+                          "03573":"Beachwood",
+                          "10514":"Toms River",
+                          "02522":"Bayville",
                           }
     for store in nj_rite_aid_stores.keys():
         num = store

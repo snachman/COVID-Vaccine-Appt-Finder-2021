@@ -13,7 +13,7 @@ def alert(message, channel):
 
     if channel.lower() == "maryland":
         destination = [maryland_channel]
-    elif channel.lower() == "personal":
+    elif channel.lower() == "personal" or channel.lower() == "debug":
         destination = [personal_channel]
     elif channel.lower() == "new jersey":
         destination = [new_jersey_channel]

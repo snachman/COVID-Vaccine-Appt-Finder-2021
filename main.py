@@ -76,12 +76,12 @@ def known_working():
                           "10496": "Jackson, NJ",
                           "02521": "Lumberton, NJ",
                           "00135": "Willingboro, NJ",
-                          "08759": "Whiting, NJ",
+                          "10517": "Whiting, NJ",
                           }
     for store in nj_rite_aid_stores.keys():
         num = store
         name = nj_rite_aid_stores[store]
-        riteaid.rite_aid_act(store_number=num, store_name=name)
+        riteaid.rite_aid_act(store_number=num, store_name=name, debug=True)
 
     utils.log("End vax search")
 

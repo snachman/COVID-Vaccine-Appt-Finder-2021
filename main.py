@@ -46,7 +46,6 @@ def known_working():
     # Maryland
     six_flags.act()
     shoprite.act(debug=True)
-    riteaid.act(debug=True)
     giant.act(debug=True)
     mercy.act()
     gbmc.act()

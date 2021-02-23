@@ -59,10 +59,14 @@ def known_working():
     time.sleep(20)
     walgreens.walgreens_act(10025, debug_flag=True)
 
+
     # New Jersey
     hackensack.act(debug=True)
     walgreens.allentown_nj_walgreens_act(debug_flag=True)
     chemed_oc_nj.act(debug=True)
+    riteaid.rite_aid_act("10505")
+    riteaid.rite_aid_act("1326")
+
     utils.log("End vax search")
 
 

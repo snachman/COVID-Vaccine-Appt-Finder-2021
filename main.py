@@ -41,6 +41,8 @@ def known_working():
                                                         "patience. Please continue to check back",
                           'https://www.hackensackmeridianhealth.org/covid19/')
 
+    chemed_oc_nj = Provider("CHEMED Health Center", "At this time, CHEMED Health Center does not have available first dose vaccine supplies. We are therefore not currently taking appointments for first doses", "https://www.chemedhealth.org/news/519/covid-vaccine-scheduling-information/")
+
     # Maryland
     six_flags.act()
     shoprite.act(debug=True)
@@ -61,7 +63,7 @@ def known_working():
     # New Jersey
     hackensack.act(debug=True)
     walgreens.allentown_nj_walgreens_act(debug_flag=True)
-
+    chemed_oc_nj.act(debug=True)
     utils.log("End vax search")
 
 

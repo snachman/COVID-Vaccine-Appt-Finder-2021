@@ -55,6 +55,8 @@ def known_working():
     walgreens.walgreens_act(21702, debug_flag=True)
     time.sleep(20)
     walgreens.walgreens_act(21401, debug_flag=True)
+    time.sleep(20)
+    walgreens.walgreens_act(95482, debug_flag=True)
 
 
     # New Jersey

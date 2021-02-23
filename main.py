@@ -44,6 +44,7 @@ def known_working():
     chemed_oc_nj = Provider("CHEMED Health Center", "At this time, CHEMED Health Center does not have available first dose vaccine supplies. We are therefore not currently taking appointments for first doses", "https://www.chemedhealth.org/news/519/covid-vaccine-scheduling-information/")
 
     # Maryland
+
     six_flags.act()
     shoprite.act(debug=True)
     giant.act(debug=True)
@@ -65,11 +66,11 @@ def known_working():
     walgreens.allentown_nj_walgreens_act(debug_flag=True)
     chemed_oc_nj.act(debug=True)
 
-    stores = ["00695", "00695", "01778", "01796", "10424",
+    nj_rite_aid_stores = ["00695", "00695", "01778", "01796", "10424",
               "10425", "10510", "00425", "02518", "03974",
               "10496"
               ]
-    for store in stores:
+    for store in nj_rite_aid_stores:
         riteaid.rite_aid_act(store)
 
     utils.log("End vax search")

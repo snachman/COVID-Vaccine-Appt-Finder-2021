@@ -63,12 +63,21 @@ def known_working():
     hackensack.act(debug=True)
     walgreens.allentown_nj_walgreens_act(debug_flag=True)
     chemed_oc_nj.act(debug=True)
-
-    nj_rite_aid_stores = ["00695", "00695", "01778", "01796", "10424",
-              "10425", "10510", "00425", "02518", "03974",
-              "10496"
-              ]
-    for store in nj_rite_aid_stores:
+    nj_rite_aid_stores = {"10505":"Robbinsville, NJ",
+                          "01326": "Trenton, NJ",
+                          "02526": "Wrightstown, NJ",
+                          "07830": "Burlington, NJ",
+                          "11115": "Morrisville, NJ",
+                          "11106": "Fairless Hills, NJ",
+                          "00850": "Levittown, NJ",
+                          "03483": "Browns Mills, NJ",
+                          "04879": "Burlington, NJ",
+                          "10496": "Jackson, NJ",
+                          "02521": "Lumberton, NJ",
+                          "00135": "Willingboro, NJ",
+                          "08759": "Whiting, NJ",
+                          }
+    for store in nj_rite_aid_stores.keys():
         riteaid.rite_aid_act(store)
 
     utils.log("End vax search")

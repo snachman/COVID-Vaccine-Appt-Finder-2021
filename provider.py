@@ -172,15 +172,15 @@ class Provider():
 
 
 
-    def rite_aid_act(self, store_number, debug=False):
+    def rite_aid_act(self, store_number, store_name, debug=False):
         store_number = str(store_number)
         url = f"https://www.riteaid.com/services/ext/v2/vaccine/checkSlots?storeNumber={store_number}"
         r = requests.get(url)
         no_appts = """{"Data":{"slots":{"1":false,"2":false}},"Status":"SUCCESS","ErrCde":null,"ErrMsg":null,"ErrMsgDtl":null}"""
         if r.text == no_appts:
-            utils.log(f"Rite Aid Store {store_number} no appts")
+            utils.log(f"Rite Aid Store {store_number}, {store_name} no appts")
         else:
-            message = f"Rite Aid Store {store_number} APPT AVAILABLE"
+            message = f"Rite Aid Store {store_number}, {store_name} APPT AVAILABLE"
             utils.log(message)
             utils.alert(message, debug)
             utils.alert("APPT DATA CAPTURE", debug)

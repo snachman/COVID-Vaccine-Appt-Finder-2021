@@ -184,6 +184,9 @@ class Provider():
             utils.log(message)
             utils.alert(message, debug)
             utils.alert("APPT DATA CAPTURE", debug)
-            utils.alert(r.text, debug)
+            try:
+                utils.alert("data: " + r.text, debug)
+            except:
+                utils.alert("fail to print data", debug)
         time.sleep(20)
 

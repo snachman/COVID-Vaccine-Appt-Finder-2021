@@ -64,8 +64,13 @@ def known_working():
     hackensack.act(debug=True)
     walgreens.allentown_nj_walgreens_act(debug_flag=True)
     chemed_oc_nj.act(debug=True)
-    riteaid.rite_aid_act("10505")
-    riteaid.rite_aid_act("1326")
+
+    stores = ["00695", "00695", "01778", "01796", "10424",
+              "10425", "10510", "00425", "02518", "03974",
+              "10496"
+              ]
+    for store in stores:
+        riteaid.rite_aid_act(store)
 
     utils.log("End vax search")
 

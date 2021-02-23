@@ -12,7 +12,7 @@ def known_working():
     adventist = Provider("Adventist Health",
                          "null",
                          "https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/")
-    adventist.adventist_act()
+
 
     mercy = Provider("Mercy Medical",
                      "Vaccine appointments may not be scheduled online or via MyChart",
@@ -45,6 +45,7 @@ def known_working():
 
     # Maryland
 
+    adventist.adventist_act()
     six_flags.act()
     shoprite.act(debug=True)
     giant.act(debug=True)
@@ -78,7 +79,9 @@ def known_working():
                           "08759": "Whiting, NJ",
                           }
     for store in nj_rite_aid_stores.keys():
-        riteaid.rite_aid_act(store)
+        num = store
+        name = nj_rite_aid_stores[store]
+        riteaid.rite_aid_act(store_number=num, store_name=name)
 
     utils.log("End vax search")
 

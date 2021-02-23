@@ -105,7 +105,7 @@ def known_working():
     for store in nj_rite_aid_stores.keys():
         num = store
         name = nj_rite_aid_stores[store]
-        riteaid.rite_aid_act(store_number=num, store_name=name, debug=True)
+        riteaid.rite_aid_act(store_number=num, store_name=name, channel="new jersey")
 
     utils.log("End vax search")
 

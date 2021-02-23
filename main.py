@@ -47,7 +47,6 @@ def known_working():
 
     adventist.adventist_act()
     six_flags.act()
-    shoprite.act(debug=True)
     giant.act(debug=True)
     mercy.act()
     gbmc.act()
@@ -61,6 +60,7 @@ def known_working():
 
 
     # New Jersey
+    shoprite.act(debug=True)
     hackensack.act(debug=True)
     walgreens.allentown_nj_walgreens_act(debug_flag=True)
     chemed_oc_nj.act(debug=True)

@@ -119,6 +119,7 @@ def obsolete():
 
 
 def development(channel="debug"):
+    pass
 
 if __name__ == '__main__':
-    development()
+    known_working()

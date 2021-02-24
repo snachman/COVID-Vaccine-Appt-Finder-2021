@@ -126,20 +126,24 @@ class Provider():
         response = os.popen(cmd)
         data = (response.read())
         response.close()
+        utils.write_to_scratchpad(data)
         j = json.loads(data)
         if not j['appointmentsAvailable']:
             message = "Walgreens - No available appts within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
+            utils.write_to_scratchpad("if - no appts available")
             utils.alert("walgreens: " + data, channel='debug')
 
         elif j['appointmentsAvailable']:
             message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
+            utils.write_to_scratchpad("elif - true")
             utils.alert("walgreens: " + data, channel='debug')
 
             utils.alert(message, channel)
         else:
-            utils.alert(j['appointmentsAvailable'], channel='debug')
+            utils.write_to_scratchpad("else triggered")
+
 
     def allentown_nj_walgreens_act(self, channel):
 

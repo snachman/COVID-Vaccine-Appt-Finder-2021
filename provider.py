@@ -130,12 +130,16 @@ class Provider():
         if not j['appointmentsAvailable']:
             message = "Walgreens - No available appts within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
-            # utils.alert(message, debug_flag=True)
+            utils.alert(j['appointmentsAvailable'], channel='debug')
 
         elif j['appointmentsAvailable']:
             message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
+            utils.alert(j['appointmentsAvailable'], channel='debug')
+
             utils.alert(message, channel)
+        else:
+            utils.alert(j['appointmentsAvailable'], channel='debug')
 
     def allentown_nj_walgreens_act(self, channel):
 

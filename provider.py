@@ -135,7 +135,7 @@ class Provider():
         elif j['appointmentsAvailable']:
             message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
-            utils.alert("walgreens: " + j['zipCode'] + " " + j['appointmentsAvailable'], channel='debug')
+            utils.alert("walgreens: " + data, channel='debug')
 
             utils.alert(message, channel)
         else:

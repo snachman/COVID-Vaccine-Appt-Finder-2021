@@ -17,6 +17,8 @@ def alert(message, channel):
         destination = [personal_channel]
     elif channel.lower() == "new jersey":
         destination = [new_jersey_channel]
+    else:
+        destination = [personal_channel]
 
     for dest in destination:
         curl = """curl -X POST -H 'Content-type: application/json' --data '{"text":"%s"}' %s""" % (

@@ -43,6 +43,9 @@ def known_working():
 
     chemed_oc_nj = Provider("CHEMED Health Center", "At this time, CHEMED Health Center does not have available first dose vaccine supplies. We are therefore not currently taking appointments for first doses", "https://www.chemedhealth.org/news/519/covid-vaccine-scheduling-information/")
 
+    penn = Provider("Penn Med", "At this time, all appointments for the COVID-19 Vaccine have been filled", "https://www.princetonhcs.org/")
+
+
     # Maryland
 
     adventist.adventist_act(channel='maryland')
@@ -77,6 +80,7 @@ def known_working():
 
 
     # New Jersey
+    penn.act(channel='new jersey')
     shoprite.act(channel="new jersey")
     hackensack.act(channel="new jersey")
     walgreens.allentown_nj_walgreens_act(channel="new jersey")
@@ -114,9 +118,7 @@ def obsolete():
     pass
 
 
-def development(debug=True):
-    pass
-
+def development(channel="debug"):
 
 if __name__ == '__main__':
-    known_working()
+    development()

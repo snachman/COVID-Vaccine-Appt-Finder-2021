@@ -36,3 +36,9 @@ def log(message):
             line)
         os.popen(curl)
         file.close()
+
+
+def write_to_scratchpad(message):
+    with open('scratchpad.txt', 'a') as file:
+        file.write(message)
+        file.close()

@@ -135,7 +135,7 @@ class Provider():
         elif j['appointmentsAvailable']:
             message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode']
             utils.log(message)
-            utils.alert(j['appointmentsAvailable'], channel='debug')
+            utils.alert("walgreens: " + j['zipCode'] + " " + j['appointmentsAvailable'], channel='debug')
 
             utils.alert(message, channel)
         else:
@@ -193,3 +193,10 @@ class Provider():
                 utils.log("fail to print data", channel)
         time.sleep(7)
 
+
+
+    def giant_zip_check(self, zip):
+        s = requests.session()
+        s.get("https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
+        r = s.get('https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/CheckZipCode?zip=08759&appointmentType=5956&PatientInterfaceMode=0')
+        print(r.text)

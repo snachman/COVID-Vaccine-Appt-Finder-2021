@@ -129,7 +129,7 @@ class Provider():
         utils.write_to_scratchpad(data)
         j = json.loads(data)
         if not j['appointmentsAvailable']:
-            message = "Walgreens - No available appts within " + str(j['radius']) + ' miles of ' + j['zipCode']
+            message = "Walgreens - No available appts within " + str(j['radius']) + ' miles of ' + j['zipCode'] + " " + code.city
             utils.log(message)
             utils.write_to_scratchpad("if - no appts available")
             utils.alert("walgreens: " + data, channel='debug')

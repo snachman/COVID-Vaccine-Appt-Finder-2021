@@ -198,9 +198,3 @@ class Provider():
         time.sleep(7)
 
 
-
-    def giant_zip_check(self, zip):
-        s = requests.session()
-        s.get("https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
-        r = s.get('https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/CheckZipCode?zip=08759&appointmentType=5956&PatientInterfaceMode=0')
-        print(r.text)

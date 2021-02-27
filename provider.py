@@ -63,8 +63,8 @@ class Provider:
         # print(data.status_code)
         # print(data.text)
         if data.status_code == 200:
-            number_of_Alert_Me = (data.text.count("Alert Me"))
-            if number_of_Alert_Me != 4:
+            number_of_alert_me = (data.text.count("Alert Me"))
+            if number_of_alert_me != 4:
                 results = "CHECK SITE"
                 utils.alert(results + "\n" + data.url, channel)
                 utils.log(self.get_org_name() + "," + results)

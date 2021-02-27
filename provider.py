@@ -195,6 +195,6 @@ class Provider():
                 utils.log("data: " + r.text, channel)
             except:
                 utils.log("fail to print data", channel)
-        time.sleep(7)
+        time.sleep(10)
 
 

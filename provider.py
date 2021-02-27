@@ -41,7 +41,6 @@ class Provider():
         else:
             utils.log(str(data.status_code))
 
-
     def frederick_act_full_appts(self, channel):
         data = self.get_data()
         if data.status_code == 200:
@@ -52,7 +51,6 @@ class Provider():
                 utils.log(self.get_org_name() + "," + results)
             else:
                 print("equal to 7")
-
 
     def adventist_act(self, channel):
         data = self.get_data()
@@ -71,7 +69,6 @@ class Provider():
             utils.log(str(data.status_code))
 
         # https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/
-
 
     def cvs_act(self, channel):
         booking_page = "https://www.cvs.com/immunizations/covid-19-vaccine?icid=cvs-home-hero1-banner-1-link2-coronavirus-vaccine"

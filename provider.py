@@ -92,14 +92,14 @@ class Provider:
             state = store['state']
             city = store['city']
             city = city.title()
-            totalAvailable = str(store['totalAvailable'])
-            pctAvailable = str(store['pctAvailable'])
+            total_available = str(store['totalAvailable'])
+            pct_available = str(store['pctAvailable'])
             status = store['status']
-            if int(totalAvailable) <= 1:
+            if int(total_available) <= 1:
                 utils.log(f"CVS {city},no appts")
-            elif int(totalAvailable) > 1:
+            elif int(total_available) > 1:
                 utils.log(f"city,CHECK SITE")
-                alert_string = f"CVS {city}: {totalAvailable} available which makes up {pctAvailable}% of the total available"
+                alert_string = f"CVS {city}: {total_available} available which makes up {pct_available}% of the total available"
                 utils.alert(alert_string, channel)
             else:
                 print(r.status_code)

@@ -7,7 +7,6 @@ from provider import Provider
 def known_working():
     utils.log("Begin vax search")
 
-
     giant = Provider("Giant Foods Stores",
                      "Please check back later",
                      "https://giantfoodsched.rxtouch.com/rbssched/program/covid19/Patient/Advisory")
@@ -22,26 +21,20 @@ def known_working():
 
     walgreens = Provider("Walgreens", "", "")
 
-
-
-
     # gbmc = Provider("GBMC", "No appointments currently available", "https://www.gbmc.org/covid-vaccine")
 
     # adventist = Provider("Adventist Health",
     #                      "null",
     #                      "https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/")
 
-
     # shoprite = Provider("Shoprite NJ", "There are currently no COVID-19 vaccine appointments available. Please check "
     #                                    "back later. We appreciate your patience as we open as many appointments as "
     #                                    "possible. Thank you.",
     #                     "https://covidinfo.reportsonline.com/covidinfo/ShopRite.html")
 
-
     # mercy = Provider("Mercy Medical",
     #                  "Vaccine appointments may not be scheduled online or via MyChart",
     #                  "https://mdmercy.com/news-and-events/updates-for-patients-and-visitors/vaccine-faqs?sc_lang=en")
-
 
     # hackensack = Provider("Hackensack Meridian Health", "All appointments currently are full. We hope to schedule "
     #                                                     "again as more vaccines are received. Thank you for your "
@@ -51,7 +44,6 @@ def known_working():
     # chemed_oc_nj = Provider("CHEMED Health Center", "At this time, CHEMED Health Center does not have available first dose vaccine supplies. We are therefore not currently taking appointments for first doses", "https://www.chemedhealth.org/news/519/covid-vaccine-scheduling-information/")
 
     # penn = Provider("Penn Med", "At this time, all appointments for the COVID-19 Vaccine have been filled", "https://www.princetonhcs.org/")
-
 
     # Maryland
 
@@ -66,23 +58,21 @@ def known_working():
     time.sleep(20)
     walgreens.walgreens_act(21401, channel='maryland')
     md_rite_aid_stores = {
-        "11213":"York Road South",
-        "02214":"Smith Ave",
-        "04686":"Pikesville",
-        "00349":"Park Heights Ave",
-        "00362":"Northern Pkwy",
-        "03871":"Owings Mills",
-        "00390":"Randallstown",
-        "02210":"Arbutus",
-        "02223":"Eldersburg",
-        "00384":"Ellicott City",
+        "11213": "York Road South",
+        "02214": "Smith Ave",
+        "04686": "Pikesville",
+        "00349": "Park Heights Ave",
+        "00362": "Northern Pkwy",
+        "03871": "Owings Mills",
+        "00390": "Randallstown",
+        "02210": "Arbutus",
+        "02223": "Eldersburg",
+        "00384": "Ellicott City",
     }
     for store in md_rite_aid_stores.keys():
         num = store
         name = md_rite_aid_stores[store]
         riteaid.rite_aid_act(store_number=num, store_name=name, channel="maryland")
-
-
 
     # New Jersey
     # penn.act(channel='new jersey')
@@ -125,6 +115,7 @@ def obsolete():
 
 def development(channel="debug"):
     pass
+
 
 if __name__ == '__main__':
     known_working()

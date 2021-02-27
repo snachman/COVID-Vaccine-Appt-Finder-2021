@@ -180,11 +180,14 @@ class Provider():
         store_number = str(store_number)
         url = f"https://www.riteaid.com/services/ext/v2/vaccine/checkSlots?storeNumber={store_number}"
         r = requests.get(url)
-        no_appts = """{"Data":{"slots":{"1":false,"2":false}},"Status":"SUCCESS","ErrCde":null,"ErrMsg":null,"ErrMsgDtl":null}"""
+        no_appts = """{"Data":{"slots":{"1":false,"2":false}},"Status":"SUCCESS","ErrCde":null,"ErrMsg":null,
+        "ErrMsgDtl":null} """
         if r.text == no_appts:
             utils.log(f"Rite Aid Store {store_number}, {store_name} no appts")
         else:
-            message = f"Rite Aid Store {store_number}, {store_name} APPT AVAILABLE\nhttps://www.riteaid.com/pharmacy/covid-qualifier?utm_source=state&utm_medium=web&utm_campaign=Covid19&utm_content=Covid19scheduler_NJ_2_12_21"
+            message = f"Rite Aid Store {store_number}, {store_name} APPT AVAILABLE\nhttps://www.riteaid.com/pharmacy" \
+                      f"/covid-qualifier?utm_source=state&utm_medium=web&utm_campaign=Covid19&utm_content" \
+                      f"=Covid19scheduler_NJ_2_12_21 "
             utils.log(message)
             utils.alert(message, channel)
             utils.log("APPT DATA CAPTURE")

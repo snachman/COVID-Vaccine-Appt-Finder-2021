@@ -187,11 +187,11 @@ class Provider():
             message = f"Rite Aid Store {store_number}, {store_name} APPT AVAILABLE\nhttps://www.riteaid.com/pharmacy/covid-qualifier?utm_source=state&utm_medium=web&utm_campaign=Covid19&utm_content=Covid19scheduler_NJ_2_12_21"
             utils.log(message)
             utils.alert(message, channel)
-            utils.log("APPT DATA CAPTURE", channel)
+            utils.log("APPT DATA CAPTURE")
             try:
-                utils.log("data: " + r.text, channel)
+                utils.log("data: " + r.text)
             except:
-                utils.log("fail to print data", channel)
+                utils.log("fail to print data")
         time.sleep(10)
 
 

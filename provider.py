@@ -104,10 +104,10 @@ class Provider:
             else:
                 print(r.status_code)
 
-    def walgreens_act(self, zip, channel):
+    def walgreens_act(self, zip_code, channel):
         time.sleep(20)
         zcdb = ZipCodeDatabase()
-        code = zcdb[zip]
+        code = zcdb[zip_code]
         lat = str(code.latitude)
         long = str(code.longitude)
         cmd = """curl 'https://www.walgreens.com/hcschedulersvc/svc/v1/immunizationLocations/availability' \

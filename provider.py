@@ -103,7 +103,7 @@ class Provider():
 
 
     def walgreens_act(self, zip, channel):
-
+        time.sleep(20)
         zcdb = ZipCodeDatabase()
         code = zcdb[zip]
         lat = str(code.latitude)

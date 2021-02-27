@@ -50,8 +50,8 @@ class Provider:
     def frederick_act_full_appts(self, channel):
         data = self.get_data()
         if data.status_code == 200:
-            number_of_Full = (data.text.count("Full"))
-            if number_of_Full != 7:
+            number_of_full = (data.text.count("Full"))
+            if number_of_full != 7:
                 results = "CHECK SITE"
                 utils.alert(results + "\n" + data.url, channel)
                 utils.log(self.get_org_name() + "," + results)

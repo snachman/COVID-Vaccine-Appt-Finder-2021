@@ -7,7 +7,7 @@ import requests
 from pyzipcode import ZipCodeDatabase
 
 
-class Provider():
+class Provider:
     def __init__(self, organization, test_phrase, url):
         self.organization = organization
         self.test_phrase = test_phrase

@@ -94,7 +94,7 @@ class Provider:
             city = city.title()
             total_available = str(store['totalAvailable'])
             pct_available = str(store['pctAvailable'])
-            status = store['status']
+            # status = store['status']
             if int(total_available) <= 1:
                 utils.log(f"CVS {city},no appts")
             elif int(total_available) > 1:

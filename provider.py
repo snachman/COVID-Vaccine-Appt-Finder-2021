@@ -77,7 +77,8 @@ class Provider:
         # https://www.adventisthealthcare.com/coronavirus-covid-19/vaccine/
 
     def cvs_act(self, channel):
-        booking_page = "https://www.cvs.com/immunizations/covid-19-vaccine?icid=cvs-home-hero1-banner-1-link2-coronavirus-vaccine"
+        booking_page = "https://www.cvs.com/immunizations/covid-19-vaccine?icid=cvs-home-hero1-banner-1-link2" \
+                       "-coronavirus-vaccine "
         data_url = "https://www.cvs.com/immunizations/covid-19-vaccine.vaccine-status.MD.json?vaccineinfo"
         fullly_booked_string = "Fully Booked"
 

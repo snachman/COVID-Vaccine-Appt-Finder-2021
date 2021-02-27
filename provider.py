@@ -6,8 +6,9 @@ import utils
 import requests
 from pyzipcode import ZipCodeDatabase
 
+
 class Provider():
-    def __init__(self, organization,test_phrase, url):
+    def __init__(self, organization, test_phrase, url):
         self.organization = organization
         self.test_phrase = test_phrase
         self.url = url
@@ -16,7 +17,10 @@ class Provider():
         return self.organization
 
     def get_data(self):
-        uas = ["Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36", "Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36", "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1"]
+        uas = [
+            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
+            "Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36",
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1"]
         current_ua = random.choice(uas)
         headers = {"User-Agent": current_ua}
         r = requests.get(self.url, headers=headers)
@@ -97,8 +101,6 @@ class Provider():
             else:
                 print(r.status_code)
 
-
-
     def walgreens_act(self, zip, channel):
         time.sleep(20)
         zcdb = ZipCodeDatabase()
@@ -132,7 +134,8 @@ class Provider():
             utils.alert("walgreens: " + data, channel='debug')
 
         elif j['appointmentsAvailable']:
-            message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j['zipCode'] + " " + code.city
+            message = "Walgreens - APPTS AVAILABLE within " + str(j['radius']) + ' miles of ' + j[
+                'zipCode'] + " " + code.city
             utils.log(message)
             utils.write_to_scratchpad("elif - true")
             utils.alert("walgreens: " + data, channel='debug')
@@ -140,7 +143,6 @@ class Provider():
             utils.alert(message, channel)
         else:
             utils.write_to_scratchpad("else triggered")
-
 
     def allentown_nj_walgreens_act(self, channel):
 
@@ -173,9 +175,6 @@ class Provider():
             utils.log(message)
             utils.alert(message, channel)
 
-
-
-
     def rite_aid_act(self, store_number, store_name, channel):
         store_number = str(store_number)
         url = f"https://www.riteaid.com/services/ext/v2/vaccine/checkSlots?storeNumber={store_number}"
@@ -196,5 +195,3 @@ class Provider():
             except:
                 utils.log("fail to print data")
         time.sleep(10)
-
-

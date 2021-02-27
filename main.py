@@ -58,16 +58,10 @@ def known_working():
     time.sleep(20)
     walgreens.walgreens_act(21401, channel='maryland')
     md_rite_aid_stores = {
-        "11213": "York Road South",
-        "02214": "Smith Ave",
-        "04686": "Pikesville",
+        "2204": "Foster Ave Baltimore",
         "00349": "Park Heights Ave",
-        "00362": "Northern Pkwy",
-        "03871": "Owings Mills",
-        "00390": "Randallstown",
-        "02210": "Arbutus",
-        "02223": "Eldersburg",
-        "00384": "Ellicott City",
+        "2210":"Sulpher Spring Road",
+        "383":"Ebenezer Road",
     }
     for store in md_rite_aid_stores.keys():
         num = store

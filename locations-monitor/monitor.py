@@ -4,11 +4,11 @@ import json
 import hashlib
 
 
-
 def write_to_file(data):
     with open("site_list.txt", "a") as f:
         f.write(data)
         f.close()
+
 
 def check_file(data):
     with open('site_list.txt', 'r') as f:
@@ -21,8 +21,6 @@ def check_file(data):
 def hash_data(string):
     unique_hash = hashlib.sha256(str.encode(string)).hexdigest()
     return unique_hash
-
-
 
 
 if __name__ == '__main__':

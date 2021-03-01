@@ -154,11 +154,12 @@ class Provider:
         r = requests.get(url)
         no_appts = """{"Data":{"slots":{"1":false,"2":false}},"Status":"SUCCESS","ErrCde":null,"ErrMsg":null,
         "ErrMsgDtl":null} """
-        utils.write_to_scratchpad(r.text)
 
         if r.text == no_appts:
+            utils.write_to_scratchpad("no appt:\n" + r.text)
             utils.log(f"Rite Aid Store {store_number}, {store_name} no appts")
         else:
+            utils.write_to_scratchpad("positive appointment:\n" + r.text)
             message = f"Rite Aid Store {store_number}, {store_name} APPT AVAILABLE\nhttps://www.riteaid.com/pharmacy" \
                       f"/covid-qualifier?utm_source=state&utm_medium=web&utm_campaign=Covid19&utm_content" \
                       f"=Covid19scheduler_NJ_2_12_21 "

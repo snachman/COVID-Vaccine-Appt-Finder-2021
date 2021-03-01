@@ -37,6 +37,8 @@ if __name__ == '__main__':
         site_type = (location['attributes']['site_type'])
         hash = hash_data(facility_id + name)
         if check_file(hash):
+            # exists
             pass
         else:
+            # needs notification
             write_to_file(hash)

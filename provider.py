@@ -152,10 +152,9 @@ class Provider:
         store_number = str(store_number)
         url = f"https://www.riteaid.com/services/ext/v2/vaccine/checkSlots?storeNumber={store_number}"
         r = requests.get(url)
-        no_appts = """{"Data":{"slots":{"1":false,"2":false}},"Status":"SUCCESS","ErrCde":null,"ErrMsg":null,
-        "ErrMsgDtl":null} """
+        no_appts = """{"1":false,"2":false}"""
 
-        if r.text == no_appts:
+        if r.text in no_appts:
             utils.write_to_scratchpad("no appt:\n" + r.text)
             utils.log(f"Rite Aid Store {store_number}, {store_name} no appts")
         else:

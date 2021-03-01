@@ -155,7 +155,7 @@ class Provider:
         no_appts = """{"1":false,"2":false}"""
         low_confidance = """{"1":true,"2":false}}"""
         high_confidance = """{"1":true,"2":true}}"""
-        utils.write_to_scratchpad("rite aid")
+        utils.write_to_scratchpad("rite aid " + store_name)
 
         if no_appts in r.text:
             utils.write_to_scratchpad("no appt:\n" + r.text)

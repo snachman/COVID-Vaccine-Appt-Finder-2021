@@ -14,9 +14,12 @@ def write_to_file(data):
 def check_file(data):
     with open('site_list.txt', 'r') as f:
         if data in f.read():
+            f.close()
             return True
         else:
+            f.close()
             return False
+
 
 
 def hash_data(string):

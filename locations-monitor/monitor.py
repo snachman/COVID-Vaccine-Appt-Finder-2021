@@ -7,6 +7,7 @@ import hashlib
 def write_to_file(data):
     with open("site_list.txt", "a") as f:
         f.write(data)
+        f.write("\n")
         f.close()
 
 
@@ -35,6 +36,7 @@ if __name__ == '__main__':
         county = (location['attributes']['County'])
         site_type = (location['attributes']['site_type'])
         hash = hash_data(facility_id + name)
-
-
-
+        if check_file(hash):
+            pass
+        else:
+            write_to_file(hash)

@@ -154,7 +154,7 @@ class Provider:
         r = requests.get(url)
         no_appts = """{"1":false,"2":false}"""
         utils.write_to_scratchpad("rite aid")
-        if r.text in no_appts:
+        if no_appts in r.text:
             utils.write_to_scratchpad("no appt:\n" + r.text)
             utils.log(f"Rite Aid Store {store_number}, {store_name} no appts")
         else:

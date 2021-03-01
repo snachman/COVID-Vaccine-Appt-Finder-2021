@@ -43,5 +43,5 @@ def log(message):
 
 def write_to_scratchpad(message):
     with open('scratchpad.txt', 'a') as file:
-        file.write("\n----------\n" + message)
+        file.write("\n----------" + message + "\n\n")
         file.close()

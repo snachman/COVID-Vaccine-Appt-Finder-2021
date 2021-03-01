@@ -44,6 +44,6 @@ if __name__ == '__main__':
         else:
             # needs notification
             message = ("NEW SITE: " + name)
-            # utils.alert(message, 'personal')
+            utils.alert(message, 'personal')
             utils.log(message)
             write_to_file(hash)

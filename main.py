@@ -62,6 +62,10 @@ def known_working():
         "00349": "Park Heights Ave",
         "2210":"Sulpher Spring Road",
         "383":"Ebenezer Road",
+        "4914":"Laurel DE",
+        "4918":"Georgetown DE",
+        "4909":"Princess Anne",
+        "11194":"Seaford De"
     }
     for store in md_rite_aid_stores.keys():
         num = store

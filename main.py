@@ -53,9 +53,7 @@ def known_working():
     # mercy.act(channel='maryland')
     # gbmc.act(channel='maryland')
     # walgreens.walgreens_act(21202, channel='maryland')
-    # time.sleep(20)
     # walgreens.walgreens_act(21702, channel='maryland')
-    # time.sleep(20)
     # walgreens.walgreens_act(21401, channel='maryland')
     md_rite_aid_stores = {
         "2204": "Foster Ave Baltimore",

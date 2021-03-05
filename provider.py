@@ -175,8 +175,4 @@ class Provider:
             utils.log(message)
             utils.alert(message, channel)
             utils.log("APPT DATA CAPTURE")
-            try:
-                utils.log("data: " + r.text)
-            except:
-                utils.log("fail to print data")
         time.sleep(10)

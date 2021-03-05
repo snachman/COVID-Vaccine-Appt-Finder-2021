@@ -166,6 +166,7 @@ class Provider:
                       f"/covid-qualifier?utm_source=state&utm_medium=web&utm_campaign=Covid19&utm_content" \
                       f"=Covid19scheduler_NJ_2_12_21 "
             utils.log(message)
+            utils.alert(message, channel)
 
         elif high_confidance in r.text:
             utils.write_to_scratchpad("high confidence:\n" + r.text)

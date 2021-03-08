@@ -60,15 +60,29 @@ def known_working():
         "00349": "Park Heights Ave",
         "2210":"Sulpher Spring Road",
         "383":"Ebenezer Road",
-        "4914":"Laurel DE",
-        "4918":"Georgetown DE",
-        "4909":"Princess Anne",
-        "11194":"Seaford De"
     }
     for store in md_rite_aid_stores.keys():
         num = store
         name = md_rite_aid_stores[store]
         riteaid.rite_aid_act(store_number=num, store_name=name, channel="maryland")
+
+    de_rite_aid_stores = {
+        "4914":"Laurel DE",
+        "4918":"Georgetown DE",
+        "4909":"Princess Anne",
+        "11194":"Seaford De"
+    }
+    for store in de_rite_aid_stores.keys():
+        num = store
+        name = de_rite_aid_stores[store]
+        riteaid.rite_aid_act(store_number=num, store_name=name, channel="delaware")
+
+
+
+
+
+
+
 
     # New Jersey
     # penn.act(channel='new jersey')

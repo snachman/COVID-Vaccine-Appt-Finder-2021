@@ -70,7 +70,8 @@ def known_working():
         "4914":"Laurel DE",
         "4918":"Georgetown DE",
         "4909":"Princess Anne",
-        "11194":"Seaford De"
+        "11194":"Seaford De",
+        "4924":"Harrington DE"
     }
     for store in de_rite_aid_stores.keys():
         num = store

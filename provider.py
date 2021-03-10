@@ -48,6 +48,20 @@ class Provider:
             utils.log(str(data.status_code))
 
 
+    def six_flags_act(self, channel):
+        data = self.get_data()
+        if data.status_code == 200:
+            if self.check_for_claimed_phrase(data.text):
+                results = "No appts"
+                utils.log(self.get_org_name() + "," + results)
+            else:
+                results = "CHECK SITE"
+                utils.alert(results + "\n" + data.url, channel)
+                utils.log(self.get_org_name() + "," + results)
+        else:
+            utils.log(str(data.status_code))
+
+
 
     def giant_act(self, channel):
         no_appts = "Please check back later"

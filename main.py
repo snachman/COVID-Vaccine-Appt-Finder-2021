@@ -48,7 +48,7 @@ def known_working():
     # Maryland
 
     # adventist.adventist_act(channel='maryland')
-    six_flags.act(channel='maryland')
+    six_flags.six_flags_act(channel='maryland')
     giant.giant_act(channel='maryland')
     # mercy.act(channel='maryland')
     # gbmc.act(channel='maryland')

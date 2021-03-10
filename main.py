@@ -49,7 +49,7 @@ def known_working():
 
     # adventist.adventist_act(channel='maryland')
     six_flags.act(channel='maryland')
-    giant.act(channel='maryland')
+    giant.giant_act(channel='maryland')
     # mercy.act(channel='maryland')
     # gbmc.act(channel='maryland')
     # walgreens.walgreens_act(21202, channel='maryland')

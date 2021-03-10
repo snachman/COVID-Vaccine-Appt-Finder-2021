@@ -8,7 +8,7 @@ from pyzipcode import ZipCodeDatabase
 
 
 class Provider:
-    def __init__(self, organization, test_phrase, url):
+    def __init__(self, organization, test_phrase="", url=""):
         self.organization = organization
         self.test_phrase = test_phrase
         self.url = url
@@ -46,6 +46,40 @@ class Provider:
                 utils.log(self.get_org_name() + "," + results)
         else:
             utils.log(str(data.status_code))
+
+
+
+    def giant_act(self, channel):
+        no_appts = "Please check back later"
+        low_confidance = "queue"
+        high_confidance = "Enter the ZIP Code"
+
+        data = self.get_data()
+        if data.status_code == 200:
+            if no_appts in data.text:
+                utils.write_to_scratchpad("no appt:\n" + data.text)
+                utils.log(f"Giant Foods no appts")
+            elif low_confidance in data.text:
+                utils.write_to_scratchpad("low confidence:\n" + data.text)
+                message = f"Low confidence - Giant Foods - {self.url} "
+                utils.log(message)
+                utils.alert(message, channel)
+
+            elif high_confidance in data.text:
+                utils.write_to_scratchpad("high confidence:\n" + data.text)
+                message = f"High confidence - Giant Foods {self.url}"
+                utils.log(message)
+                utils.alert(message, channel)
+        else:
+            utils.log(str(data.status_code))
+
+
+
+
+
+
+
+
 
     def frederick_act_full_appts(self, channel):
         data = self.get_data()

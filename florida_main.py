@@ -23,7 +23,7 @@ def publix_act():
                 utils.log(formatted)
             else:
                 utils.log(formatted)
-                florida_alert(formatted + "\nhttps://www.publix.com/covid-vaccine/florida")
+                utils.alert(formatted + "\nhttps://www.publix.com/covid-vaccine/florida", 'florida')
 
 
 

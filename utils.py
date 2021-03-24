@@ -12,6 +12,7 @@ def alert(message, channel):
     new_jersey_channel = "https://hooks.slack.com/services/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"
     ohio_channel = "https://hooks.slack.com/services/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"
     delaware_channel = "https://hooks.slack.com/services/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"
+    florida_channel = "https://hooks.slack.com/services/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"
 
     if channel.lower() == "maryland":
         destination = [maryland_channel]
@@ -23,6 +24,8 @@ def alert(message, channel):
         destination = [delaware_channel]
     elif channel.lower() == "ohio":
         destination = [ohio_channel]
+    elif channel.lower() == "florida":
+        destination = [florida_channel]
     else:
         destination = [personal_channel]
 

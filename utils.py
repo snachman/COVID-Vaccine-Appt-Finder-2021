@@ -5,6 +5,7 @@ import datetime
 
 
 def alert(message, channel):
+    message = message.replace("\n", ",")
     main_channel = "https://hooks.slack.com/services/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"
     maryland_channel = "https://hooks.slack.com/services/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"
     high_confidence_channel = "https://hooks.slack.com/services/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"

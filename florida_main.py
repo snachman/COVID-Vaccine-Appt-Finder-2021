@@ -3,10 +3,6 @@ import os
 import utils
 
 
-def florida_alert(message):
-    end = ""
-    cmd = """curl -X POST -H 'Content-type: application/json' --data '{"text":" %s"}' https://hooks.slack.com/services/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""" % (message)
-    os.popen(cmd)
 
 
 def publix_act():

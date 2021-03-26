@@ -1,3 +1,5 @@
+import time
+
 import requests
 import os
 import utils
@@ -21,6 +23,11 @@ def publix_act():
                 utils.log(formatted)
             elif "Coming Soon".lower() in "status".lower():
                 utils.log(formatted)
+            elif "100".lower() in "status".lower():
+                utils.log(formatted)
+            elif "Less than 1".lower() in "status".lower():
+                utils.log(formatted)
+                utils.alert(formatted + "\nhttps://www.publix.com/covid-vaccine/florida", 'florida')
             else:
                 utils.log(formatted)
                 utils.alert(formatted + "\nhttps://www.publix.com/covid-vaccine/florida", 'florida')

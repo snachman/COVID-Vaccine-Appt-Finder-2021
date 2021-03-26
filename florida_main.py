@@ -16,7 +16,7 @@ def publix_act():
         parsed = line.split("|")
         town = parsed[0]
         status = parsed[1]
-        formatted = f"PUBLIX\n{town}: {status}"
+        formatted = f"PUBLIX\n{town}: {status} appnts remaining"
         if "dade" in line.lower():
             if "Fully Booked" in status:
                 utils.log(formatted)

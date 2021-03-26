@@ -8,7 +8,8 @@ import utils
 
 
 def publix_act():
-    url = "https://www.publix.com/covid-vaccine/florida/florida-county-status.txt?t=1616597688230"
+    epoch = round(time.time())
+    url = f"https://www.publix.com/covid-vaccine/florida/florida-county-status.txt?t={epoch}"
     r = requests.get(url)
     lines = (r.content.decode("utf-16").splitlines())
     for line in lines:

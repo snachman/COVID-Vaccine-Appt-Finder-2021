@@ -38,7 +38,7 @@ def alert(message, channel):
 
 def log(message):
     message = message.replace("\n", " ")
-    now = datetime.datetime.utcnow()+datetime.timedelta(hours=-5)
+    now = datetime.datetime.utcnow()+datetime.timedelta(hours=-4)
     stamp = now.strftime("%m/%d/%Y,%H:%M,")
     with open("log.txt", "a") as file:
         line = stamp + message + "\n"

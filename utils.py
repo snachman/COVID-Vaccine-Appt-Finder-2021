@@ -6,14 +6,14 @@ import datetime
 
 def alert(message, channel):
 
-    main_channel = "https://hooks.slack.com/services/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"
-    maryland_channel = "https://hooks.slack.com/services/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"
-    high_confidence_channel = "https://hooks.slack.com/services/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"
-    personal_channel = "https://hooks.slack.com/services/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"
-    new_jersey_channel = "https://hooks.slack.com/services/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"
-    ohio_channel = "https://hooks.slack.com/services/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"
-    delaware_channel = "https://hooks.slack.com/services/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"
-    florida_channel = "https://hooks.slack.com/services/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"
+    main_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
+    maryland_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
+    high_confidence_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
+    personal_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
+    new_jersey_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
+    ohio_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
+    delaware_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
+    florida_channel = "https://hooks.slack.com/services/XXXXXXXXXXXXXXXXXXXXX/REDACTED"
 
     if channel.lower() == "maryland":
         destination = [maryland_channel]

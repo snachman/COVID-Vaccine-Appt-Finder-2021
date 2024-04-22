@@ -1,4 +1,7 @@
 # COVID-19 Vaccine Appointment Automation Project
+## Repository Note
+
+The scripts in this repository reflect the urgent and often chaotic nature of the pandemic response. They are presented "as-is" to illustrate the real-world messiness and rapid adaptation required during such a critical time.
 
 ## Overview
 
@@ -28,9 +31,6 @@ From February 1, 2021, to April 16, 2021, I successfully booked vaccine appointm
 
 During this period, I also joined the University of Maryland Medical System, working at their vaccination sites and a field hospital set up at the convention center. Thanks to an emergency extension of my EMS license, I was able to further contribute to the pandemic response efforts.
 
-## Repository Note
-
-The scripts in this repository reflect the urgent and often chaotic nature of the pandemic response. They are presented "as-is" to illustrate the real-world messiness and rapid adaptation required during such a critical time.
 
 ---
 
